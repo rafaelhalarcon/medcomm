@@ -33,5 +33,5 @@ const UserSchema = new Schema({
     cpsaStanding: "boolean"
 });
 
-//Users will be the collection in my mongoDB Atlas
-module.exports = mongoose.model("User", UserSchema, "users");
+//Users will be the collection in mongoDB Atlas
+module.exports = mongoose.model("User", UserSchema, "user");

@@ -1,5 +1,5 @@
 // const express = require("express"); //import package
-// const app = express(); //execute package
+//const app = express(); //execute package
 // const db = require('./model/db');
 const app = require("./app");
 

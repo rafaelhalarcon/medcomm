@@ -1,23 +1,21 @@
 const express = require("express");
 const router = express.Router();
 
+const bcrypt = require('bcrypt')
+
 const User = require("../model/User");
+const authControl = require("../controllers/authControl");
 
-router.get("/", async (req, res) => {
-    let data = await User.find({});
-    console.info("records received from DB: ", data?.length);
-    res.send(data);
-});
+//Post function for sign-up form
+router.post('/register', authControl.register)
 
-router.get("/:id", async (req, res) => {
-    try {
-        let data = await User.findOne({_id: req.params.id});
-        console.info("found a user: ", data);
-        res.send(data);
-    } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
-    }
-})
+
+router.post('/login', authControl.login)
+
+
+router.post('/logout', authControl.logout)
+
+
+router.post('/refresh_token', authControl.generateAccessToken)
 
 module.exports = router;
