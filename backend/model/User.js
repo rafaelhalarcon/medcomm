@@ -6,6 +6,7 @@ const UserSchema = new Schema({
     userName: { type: String, required: true, unique: true, trim: true, maxLength: 25 },
     firstName: { type: String, required: true, trim: true, maxLength: 25 },
     lastName: { type: String, required: true, trim: true, maxLength: 25 },
+    password: { type: String, required: true, maxLenght: 12, },
     avatar: {
         type: String,
         default: 'http://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png'
@@ -34,4 +35,4 @@ const UserSchema = new Schema({
 });
 
 //Users will be the collection in mongoDB Atlas
-module.exports = mongoose.model("User", UserSchema, "user");
+module.exports = mongoose.model("User", UserSchema, "usermaximum ");
