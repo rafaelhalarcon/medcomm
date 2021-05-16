@@ -7,6 +7,7 @@ const authControl =
 {
     //Register function
     register: async (req, res) => {
+        console.log("I am hitting signup/register POST");
         try {
             const { lastName, firstName, userName, email, password, gender } = req.body
             let newUserName = userName.toLowerCase().replace(/ /g, '')
