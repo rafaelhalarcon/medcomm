@@ -25,13 +25,15 @@ const UserSchema = new Schema({
     },
     phoneNumber: { type: String, required: [true, "can't be blank"], match: [/\d{3}-\d{3}-\d{4}/, "is invalid"] },
     email: { type: String, lowercase: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true, trim: true },
-    gender: { values: ["male", "female", "preferNotToAnswer"] },
+    genderIdentity: { type: String, required: [true, "can't be blank"] },
     specialty: { type: String, required: [true, "can't be blank"] },
     practiceType: { values: ["private", "public"] },
     activeStatus: { values: ["practicing", "retired", "mentoring"] },
     followers: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
     following: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
     cpsaStanding: "boolean"
+}, {
+    timestamps: true
 });
 
 //Users will be the collection in mongoDB Atlas
