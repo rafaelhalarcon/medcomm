@@ -37,4 +37,4 @@ const UserSchema = new Schema({
 });
 
 //Users will be the collection in mongoDB Atlas
-module.exports = mongoose.model("User", UserSchema, "usermaximum ");
+module.exports = mongoose.model("User", UserSchema);
