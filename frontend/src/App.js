@@ -1,17 +1,45 @@
-import logo from './commed_2.svg';
-import { Route, Switch } from "react-router-dom";
+import logo from './commed_2_1.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import './App.css';
 
-function App() {
+import RegistrationPage from "./Pages/RegistrationPage";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Your trusted source in communication <br/>from Doctor to Doctor.
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <div>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Signup</Link>
+          </div>
+      <img src={logo} className="App-logo" alt="logo" />
+      <p>
+        Your trusted source in communication <br />from Doctor to Doctor.
         </p>
-      </header>
-    </div>
+        </header>
+    </div >
+  <Switch>
+    <Route path="/register">
+      <RegistrationPage />
+    </Route>
+    {/* <Route path="/user/:userId/edit">
+      <UserEditPage />
+    </Route>
+    <Route path="/user/:userId">
+      <UserProfile />
+    </Route>
+    <Route path="/login">
+      <Login />
+  </Route>*/}
+  </Switch> 
+    </Router>
   );
 }
 

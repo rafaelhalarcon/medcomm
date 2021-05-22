@@ -40,7 +40,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+.App-logo {
     animation: heartbeat infinite 3s;
   }
 }
