@@ -15,7 +15,7 @@
   }
   16%
   {
-    transform: scale( .75 );
+    transform: scale( .80 );
   }
   32%
   {
@@ -23,7 +23,7 @@
   }
   48%
   {
-    transform: scale( .75 );
+    transform: scale( .80 );
   }
   64%
   {
@@ -31,7 +31,7 @@
   }
   80%
   {
-    transform: scale( .75 );
+    transform: scale( .80 );
   }
   100%
   {
@@ -41,7 +41,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: heartbeat infinite 5s;
+    animation: heartbeat infinite 3s;
   }
 }
 
