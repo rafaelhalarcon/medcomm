@@ -44,7 +44,7 @@ const SignupForm = ({ username, firstName, lastName, password, avatar, birthDate
             activeStatus: updatedActiveStatus,
             cpsaStanding: updatedCpsaStanding  
         }
-        console.log(`Creating user profile with ${updatedSignupForm}`);
+        console.log(updatedSignupForm);
         onSave(updatedSignupForm);
     }
     const onInputChange = (event, setFunction) => {

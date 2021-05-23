@@ -3,26 +3,29 @@ import { useHistory, useParams } from "react-router-dom";
 
 import SignupForm from "../components/SignupForm";
 
+const UNKNOWN = "unknown";
 const RegistrationPage = () => {
 
-    let [username, setUsername] = useState()
+    let [userRecord, setUserRecord] = useState({});
     let [saveError, setSaveError] = useState();
 
     let history = useHistory();
-    const { userId } = useParams()
+    const { userId } = useParams();
 
     useEffect(() => {
+        console.log("user record id", userRecord);
         const getUsername = async () => {
-            let response = await fetch("/register/"+username);
+            let response = await fetch("/register/"+userRecord._id);
             let data = await response.json();
-            setUsername(data);
+            setUserRecord(data);
         }
         getUsername();
-    }, [username]);
+    }, [userRecord]);
         
     let onSave = async (updatedSignupForm) => {
+        console.log(updatedSignupForm);
         try {
-            let postResponse = await fetch('/register/'+username, {
+            let postResponse = await fetch('/signup/register/'+userRecord._id, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -39,7 +42,7 @@ const RegistrationPage = () => {
             else {
                 setSaveError(undefined)
                 // go back to the list view!
-                history.push("/register/"+username)
+                history.push("/signup/register/"+userRecord._id)
             }
         }
         catch (error) {
@@ -53,25 +56,25 @@ const RegistrationPage = () => {
             onSave={onSave}
             saveError={saveError}
             saveButtonCaption="Create User"
-            username={username.username} 
-            firstName={username.firstName} 
-            lastName={username.lastName} 
-            password={username.password}
-            avatar={username.avatar}
-            birthDate={username.birthDate} 
-            registrationDate={username.registrationDate}
-            addressStreetNumber={username.addressStreetNumber}
-            addressStreetName={username.addressStreetName}
-            addressPostalCode={username.addressPostalCode}
-            addressTown={username.addressTown}
-            addressProvince={username.addressProvince}
-            phoneNumber={username.phoneNumber}
-            email={username.email}
-            genderIdentity={username.genderIdentity}
-            specialty={username.specialty}
-            practiceType={username.practiceType}
-            activeStatus={username.activeStatus}
-            cpsaStanding={username.cpsaStanding}
+            username={userRecord?.username || UNKNOWN} 
+            firstName={userRecord?.firstName || UNKNOWN} 
+            lastName={userRecord?.lastName || UNKNOWN} 
+            password={userRecord?.password || UNKNOWN}
+            avatar={userRecord?.avatar || UNKNOWN}
+            birthDate={userRecord?.birthDate || UNKNOWN} 
+            registrationDate={userRecord?.registrationDate || UNKNOWN}
+            addressStreetNumber={userRecord?.addressStreetNumber || UNKNOWN}
+            addressStreetName={userRecord?.addressStreetName || UNKNOWN}
+            addressPostalCode={userRecord?.addressPostalCode || UNKNOWN}
+            addressTown={userRecord?.addressTown || UNKNOWN}
+            addressProvince={userRecord?.addressProvince || UNKNOWN}
+            phoneNumber={userRecord?.phoneNumber || UNKNOWN}
+            email={userRecord?.email || UNKNOWN}
+            genderIdentity={userRecord?.genderIdentity || UNKNOWN}
+            specialty={userRecord?.specialty || UNKNOWN}
+            practiceType={userRecord?.practiceType || UNKNOWN}
+            activeStatus={userRecord?.activeStatus || UNKNOWN}
+            cpsaStanding={userRecord?.cpsaStanding || UNKNOWN}
         />
     )
 }

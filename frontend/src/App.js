@@ -15,21 +15,21 @@ const App = () => {
     <Router>
       <div className="App">
         <header className="App-header">
-          <div>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Signup</Link>
-          </div>
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Your trusted source in communication <br />from Doctor to Doctor.
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Your trusted source in communication <br />from Doctor to Doctor.
         </p>
         </header>
-    </div >
-  <Switch>
-    <Route path="/register">
-      <RegistrationPage />
-    </Route>
-    {/* <Route path="/user/:userId/edit">
+        <div>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Signup</Link>
+        </div>
+      </div >
+      <Switch>
+        <Route path="/register">
+          <RegistrationPage />
+        </Route>
+        {/* <Route path="/user/:userId/edit">
       <UserEditPage />
     </Route>
     <Route path="/user/:userId">
@@ -38,7 +38,7 @@ const App = () => {
     <Route path="/login">
       <Login />
   </Route>*/}
-  </Switch> 
+      </Switch>
     </Router>
   );
 }
