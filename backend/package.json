@@ -2,7 +2,7 @@
   "name": "medcomm",
   "version": "1.0.0",
   "description": "EvolveU FSD Project 2",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
@@ -19,11 +19,13 @@
   "homepage": "https://github.com/rafaelhalarcon/medcomm#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "body": "^5.1.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.7"
-  },
-  "devDependencies": {}
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.7",
+    "socket.io": "^4.1.2"
+  }
 }

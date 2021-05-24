@@ -1,6 +1,7 @@
 const Users = require('../model/User')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+require("dotenv").config()
 
 
 const authControl =
@@ -9,8 +10,7 @@ const authControl =
     register: async (req, res) => {
         console.log("I am hitting signup/register POST");
         try {
-            console.log(req.body);
-            const { lastName, firstName, userName, email, password, gender } = req.body
+            const { lastName, firstName, userName, email, password, genderIdentity,address, birthDate, specialty, phoneNumber } = req.body
             let newUserName = userName.toLowerCase().replace(/ /g, '')
 
             //checks to see if a user name exists
@@ -29,7 +29,9 @@ const authControl =
 
             const newUser = new Users(
                 {
-                    lastName, firstName, userName: newUserName, email, password: passwordHash, gender
+                    lastName, firstName, userName: newUserName, email, 
+                    password: passwordHash, genderIdentity, address, birthDate,
+                    specialty, phoneNumber
                 }
             )
 
@@ -135,13 +137,13 @@ const authControl =
             })
         }
         catch (err) {
-            return res.status(500).json({ mesg: err.message })
+            return res.status(500).json({ msg: err.message })
         }
     }
 }
 
 const createAccessToken = (payload) => {
-    return jwt.sign(payload, process.env.ACCES_TOKEN_SECRET, { expiresIn: '1d' })
+    return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' })
 }
 
 const createRefreshToken = (payload) => {

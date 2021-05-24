@@ -1,4 +1,5 @@
 # medcomm
+
 EvolveU FSD Project 2
 
 DOCTORS HELPING DOCTORS
@@ -8,6 +9,3 @@ MERN stack application connecting doctors with other doctors in Alberta in order
 -Create id with email and password, authenticated and encrypted login.
 -Send, receive, store, retrieve, forward, export, and filter messages P2P
 -Send, receive, store, retrieve, forward, export, and filter messages P2Group
-
-
-

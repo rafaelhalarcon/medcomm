@@ -23,7 +23,7 @@ const UserSchema = new Schema({
         },
         town: { type: String, required: true }
     },
-    phoneNumber: { type: String, required: [true, "can't be blank"], match: [/\d{3}-\d{3}-\d{4}/, "is invalid"] },
+    phoneNumber: { type: Number, required: [true, "can't be blank"], match: [/\d{3}-\d{3}-\d{4}/, "is invalid"] },
     email: { type: String, lowercase: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid'], index: true, trim: true },
     genderIdentity: { type: String, required: [true, "can't be blank"] },
     specialty: { type: String, required: [true, "can't be blank"] },
@@ -37,4 +37,4 @@ const UserSchema = new Schema({
 });
 
 //Users will be the collection in mongoDB Atlas
-module.exports = mongoose.model("User", UserSchema);
+module.exports = User = mongoose.model("users", UserSchema);
