@@ -5,16 +5,14 @@ const Schema = mongoose.Schema;
 
 const conversationSchema = new Schema({
 
-    participants:[{ 
-        type:Schema.Types.ObjectId, ref: 'users',
-    }],
-    lastMessage:{
-        type:String,
+    participants:{ 
+        type:Array,
     },
-    date: {
-        type: String,
-        default: Date.now,
-    }
-})
+   
+},
+{
+    timestamps:true,
+}
+)
 
-module.exports = Conversation = mongoose.model('conversations', conversationSchema)
+module.exports = mongoose.model('Conversation', conversationSchema, 'conversation')

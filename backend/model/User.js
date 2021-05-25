@@ -29,12 +29,12 @@ const UserSchema = new Schema({
     specialty: { type: String, required: [true, "can't be blank"] },
     practiceType: { values: ["private", "public"] },
     activeStatus: { values: ["practicing", "retired", "mentoring"] },
-    followers: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
-    following: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
+    // followers: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
+    // following: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
     cpsaStanding: "boolean"
 }, {
     timestamps: true
 });
 
 //Users will be the collection in mongoDB Atlas
-module.exports = User = mongoose.model("users", UserSchema);
+module.exports = mongoose.model("User", UserSchema, "user");
