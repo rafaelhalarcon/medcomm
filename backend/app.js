@@ -8,6 +8,7 @@ const path = require('path')
 const conversationRoute = require('./routes/conversations')
 const messageRoute = require('./routes/messages')
 const signUpRouter = require("./routes/signup")
+const loginRouter = require("./routes/login")
 
 
 //Middleware
@@ -19,9 +20,14 @@ app.use(express.urlencoded({ extended: false }))
 
 
 
-//Routes signup & login
+//Routes signup
 
 app.use("/signup", signUpRouter);
+
+
+//Routes login
+
+app.use("/login", loginRouter);
 
 
 

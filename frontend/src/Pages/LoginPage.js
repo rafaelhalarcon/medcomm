@@ -15,7 +15,7 @@ const LoginPage = () => {
         console.log("User credentials")
         console.log(userRecord);
         const getUsername = async () => {
-            let response = await fetch("/register/"+userRecord._id);
+            let response = await fetch("api/register/"+userRecord._id);
             let data = await response.json();
             setUserRecord(data);
         }
