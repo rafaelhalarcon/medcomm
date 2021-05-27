@@ -15,7 +15,7 @@ const LoginPage = () => {
         console.log("User credentials")
         console.log(userRecord);
         const getUsername = async () => {
-            let response = await fetch("api/register/"+userRecord._id);
+            let response = await fetch("api/login/"+userRecord._id);
             let data = await response.json();
             setUserRecord(data);
         }
@@ -25,7 +25,7 @@ const LoginPage = () => {
     let onSave = async (updatedSignupForm) => {
         console.log(updatedSignupForm);
         try {
-            let postResponse = await fetch('/signup/register/'+userRecord._id, {
+            let postResponse = await fetch('/api/login/'+userRecord._id, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -79,21 +79,21 @@ const LoginPage = () => {
     )
 
     //return(
-      //  <div class="col-md-6 login-form-2">
+      //  <div className="col-md-6 login-form-2">
         //    <h3>Med-Com Login</h3>
           //  <form>
-            //    <div class="form-group">
-              //      <input type="text" class="form-control" placeholder="Your Email *" value="" />
+            //    <div className="form-group">
+              //      <input type="text" className="form-control" placeholder="Your Email *" value="" />
         //         </div>
-        //         <div class="form-group">
-        //             <input type="password" class="form-control" placeholder="Your Password *" value="" />
+        //         <div className="form-group">
+        //             <input type="password" className="form-control" placeholder="Your Password *" value="" />
         //         </div>
-        //         <div class="form-group">
-        //             <input type="submit" class="btnSubmit" value="Login" />
+        //         <div className="form-group">
+        //             <input type="submit" className="btnSubmit" value="Login" />
         //         </div>
-        //         <div class="form-group">
+        //         <div className="form-group">
 
-        //             <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
+        //             <a href="#" className="ForgetPwd" value="Login">Forget Password?</a>
         //         </div>
         //     </form>
         // </div>

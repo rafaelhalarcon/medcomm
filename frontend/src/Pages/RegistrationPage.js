@@ -15,7 +15,7 @@ const RegistrationPage = () => {
     useEffect(() => {
         console.log("user record id", userRecord);
         const getUsername = async () => {
-            let response = await fetch("/register/"+userRecord._id);
+            let response = await fetch("api/register/"+userRecord._id);
             let data = await response.json();
             setUserRecord(data);
         }
@@ -25,7 +25,7 @@ const RegistrationPage = () => {
     let onSave = async (updatedSignupForm) => {
         console.log(updatedSignupForm);
         try {
-            let postResponse = await fetch('/signup/register/'+userRecord._id, {
+            let postResponse = await fetch('/signup/register/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
