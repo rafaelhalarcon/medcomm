@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-import LoginForm from "../components/Login";
+import LoginForm from "../components/LoginForm";
 
 const UNKNOWN = "unknown";
 const LoginPage = () => {

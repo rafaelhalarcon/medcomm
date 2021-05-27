@@ -38,13 +38,13 @@ div.omrs-input-group {
   position: relative;
   width: 30rem;
 }
-.button {
+button.button {
   color: #86B689;
   border-radius: 10px;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: inline-block; 
   font-size: 2rem;
   margin: 4px 2px;
   cursor: pointer
