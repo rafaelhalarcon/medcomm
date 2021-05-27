@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const LoginForm = ({ username, password, onSave, saveError, saveButtonCaption }) => {
 
-    let [inputUsername, setInputUserName] = useState(username)
+    let [inputUsername, setInputUsername] = useState(username)
     let [inputPassword, setInputPassword] = useState(password)
 
     async function onSaveClicked() {
@@ -19,13 +19,13 @@ const LoginForm = ({ username, password, onSave, saveError, saveButtonCaption })
         setFunction(event.target.value);
     };
 
-    let loginUserProfileInvalid = !inputUsername || (updatedUsername.trim().lenght === 0);
+    let loginUserProfileInvalid = !inputUsername || (inputUsername.trim().lenght === 0);
 
     return (
         <div>
             <div>
                 <label htmlFor="username">Username</label>
-                <input id="username" value={inputUsername} onChange={(event) => onInputChange(event, setInputUserName)} />
+                <input id="username" value={inputUsername} onChange={(event) => onInputChange(event, setInputUsername)} />
             </div>
             <div>
                 <label htmlFor="password">Password</label>

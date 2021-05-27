@@ -9,6 +9,7 @@ import {
 import './App.css';
 
 import RegistrationPage from "./Pages/RegistrationPage";
+import LoginPage from "./Pages/LoginPage"
 
 const App = () => {
   return (
@@ -34,10 +35,10 @@ const App = () => {
     </Route>
     <Route path="/user/:userId">
       <UserProfile />
-    </Route>
+    </Route>*/}
     <Route path="/login">
-      <Login />
-  </Route>*/}
+      <LoginPage />
+  </Route>
       </Switch>
     </Router>
   );

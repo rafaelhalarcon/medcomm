@@ -3,34 +3,35 @@ import { useHistory, useParams } from "react-router-dom";
 
 import LoginForm from "../components/Login";
 
+const UNKNOWN = "unknown";
 const LoginPage = () => {
 
-    let [inputCredentials, setInputCredentials] = useState({});
+    let [userCredentials, setUserCredentials] = useState({});
     let [saveError, setSaveError] = useState();
 
     let history = useHistory();
-    //const { userId } = useParams();
+    //const { userCredentials } = useParams();
 
     useEffect(() => {
         console.log("User credentials")
-        console.log(userRecord);
+        console.log(userCredentials);
         const getUsername = async () => {
-            let response = await fetch("api/login/"+userRecord._id);
+            let response = await fetch("api/login/"+userCredentials._id);
             let data = await response.json();
-            setUserRecord(data);
+            setUserCredentials(data);
         }
         getUsername();
-    }, [userRecord]);
+    }, [userCredentials]);
         
     let onSave = async (updatedSignupForm) => {
         console.log(updatedSignupForm);
         try {
-            let postResponse = await fetch('/api/login/'+userRecord._id, {
+            let postResponse = await fetch('/api/login/'+userCredentials._id, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(updatedSignupForm)
+                body: JSON.stringify(userCredentials)
             })
             // the server didn't like the data for some reason
             console.log('Create response is', postResponse)
@@ -42,7 +43,7 @@ const LoginPage = () => {
             else {
                 setSaveError(undefined)
                 // go back to the list view!
-                history.push("/signup/register/"+userRecord._id)
+                history.push("/signup/register/"+userCredentials._id)
             }
         }
         catch (error) {
@@ -56,25 +57,8 @@ const LoginPage = () => {
             onSave={onSave}
             saveError={saveError}
             saveButtonCaption="Login"
-            username={userRecord?.username || UNKNOWN} 
-            firstName={userRecord?.firstName || UNKNOWN} 
-            lastName={userRecord?.lastName || UNKNOWN} 
-            password={userRecord?.password || UNKNOWN}
-            avatar={userRecord?.avatar || UNKNOWN}
-            birthDate={userRecord?.birthDate || UNKNOWN} 
-            registrationDate={userRecord?.registrationDate || UNKNOWN}
-            addressStreetNumber={userRecord?.addressStreetNumber || UNKNOWN}
-            addressStreetName={userRecord?.addressStreetName || UNKNOWN}
-            addressPostalCode={userRecord?.addressPostalCode || UNKNOWN}
-            addressTown={userRecord?.addressTown || UNKNOWN}
-            addressProvince={userRecord?.addressProvince || UNKNOWN}
-            phoneNumber={userRecord?.phoneNumber || UNKNOWN}
-            email={userRecord?.email || UNKNOWN}
-            genderIdentity={userRecord?.genderIdentity || UNKNOWN}
-            specialty={userRecord?.specialty || UNKNOWN}
-            practiceType={userRecord?.practiceType || UNKNOWN}
-            activeStatus={userRecord?.activeStatus || UNKNOWN}
-            cpsaStanding={userRecord?.cpsaStanding || UNKNOWN}
+            username={userCredentials?.username || UNKNOWN} 
+            password={userCredentials?.password || UNKNOWN}
         />
     )
 
