@@ -10,18 +10,18 @@ const LoginPage = () => {
     let [saveError, setSaveError] = useState();
 
     let history = useHistory();
-    //const { userCredentials } = useParams();
+    const { userId } = useParams();
 
     useEffect(() => {
         console.log("User credentials")
         console.log(userCredentials);
-        const getUsername = async () => {
-            let response = await fetch("api/login/"+userCredentials._id);
+        const getUserCredentials = async () => {
+            let response = await fetch("api/login/"+userId);
             let data = await response.json();
             setUserCredentials(data);
         }
-        getUsername();
-    }, [userCredentials]);
+        getUserCredentials();
+    }, [userId]);
         
     let onSave = async (updatedSignupForm) => {
         console.log(updatedSignupForm);
