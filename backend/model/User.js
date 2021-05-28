@@ -26,7 +26,7 @@ const UserSchema = new Schema({
     activeStatus: { values: ["practicing", "retired", "mentoring"] },
     // followers: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
     // following: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
-    cpsaStanding: "boolean"
+    cpsaStanding: {type: Number, required: [true, "can't be blank"]}
 }, {
     timestamps: true
 });

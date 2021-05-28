@@ -10,7 +10,7 @@ const authControl =
     register: async (req, res) => {
         console.log("I am hitting signup/register POST");
         try {
-            const { lastName, firstName, userName, email, password, genderIdentity,address, birthDate, specialty, phoneNumber } = req.body
+            const { lastName, firstName, userName, email, password, genderIdentity,addressNumber, addressStreetName,addressPostalCode, addressTown, addressProvince,   birthDate, specialty, phoneNumber } = req.body
             let newUserName = userName.toLowerCase().replace(/ /g, '')
 
             //checks to see if a user name exists
@@ -30,7 +30,7 @@ const authControl =
             const newUser = new Users(
                 {
                     lastName, firstName, userName: newUserName, email, 
-                    password: passwordHash, genderIdentity, address, birthDate,
+                    password: passwordHash, genderIdentity, addressNumber, addressStreetName,addressPostalCode, addressTown, addressProvince, birthDate,
                     specialty, phoneNumber
                 }
             )
