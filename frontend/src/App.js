@@ -1,15 +1,11 @@
-import logo from './commed_2_1.svg';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import logo from "./commed_2_1.svg";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import './App.css';
+import "./App.css";
 
 import RegistrationPage from "./Pages/RegistrationPage";
-import LoginPage from "./Pages/LoginPage"
+import LoginPage from "./Pages/LoginPage";
+// import Messaging from "./Pages/Messaging";
 
 const App = () => {
   return (
@@ -18,14 +14,15 @@ const App = () => {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Your trusted source in communication <br />from Doctor to Doctor.
-        </p>
+            Your trusted source in communication <br />
+            from Doctor to Doctor.
+          </p>
         </header>
         <div>
           <Link to="/login">Login</Link>
           <Link to="/register">Signup</Link>
         </div>
-      </div >
+      </div>
       <Switch>
         <Route path="/register">
           <RegistrationPage />
@@ -36,12 +33,15 @@ const App = () => {
     <Route path="/user/:userId">
       <UserProfile />
     </Route>*/}
-    <Route path="/login">
-      <LoginPage />
-  </Route>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        {/* <Route path="/Messaging">
+          <Messaging />
+        </Route> */}
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;
