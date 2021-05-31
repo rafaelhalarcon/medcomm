@@ -163,11 +163,22 @@ const SignupForm = ({ username, firstName, lastName, password, repeatedPassword,
                             <span className="omrs-input-helper" id="email" value={updatedEmail} onChange={(event) => onInputChange(event, setUpdatedEmail)}></span>
                         </label>
                     </div>
-                    <div className="omrs-input-group">
+                    {/* <div className="omrs-input-group">
                         <label className="omrs-input-underlined">
                             <input required />
                             <span className="omrs-input-label">Gender Identity</span>
                             <span className="omrs-input-helper" id="genderIdentity" value={updatedGenderIdentity} onChange={(event) => onInputChange(event, setUpdatedGenderIdentity)}>Select one: Male, Female, Non-binary, Prefer not to disclose</span>
+                        </label>
+                    </div> */}
+                    <div className="omrs-select-group">
+                        <label className="omrs-input-underlined">
+                         <span className="omrs-select-label">Gender Identity</span>
+                        <select className="omrs-select-helper" id="genderIdentity" value={updatedGenderIdentity} onChange={(event) => onInputChange(event, setUpdatedGenderIdentity)}>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="nonBinary">Non-binary</option>
+                                <option value="notDisclose">Prefer not to disclose</option>
+                        </select>
                         </label>
                     </div>
                     <div className="omrs-input-group">
