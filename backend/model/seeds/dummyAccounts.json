@@ -1,5 +1,8 @@
+
+
+
 [{
-    "username": "rafaelalarcon",
+    "userName": "rafaelalarcon",
 	"password": "Evolve_U",
     "firstName": "Rafael",
     "lastName": "Hernandez Alarcon",
@@ -22,8 +25,8 @@
 {
     "username": "evolveu_1",
 	"password": "Evolve_U",
-    "firstName": "Evolve",
-    "lastName": "Dummy Account",
+    "firstName": "Femi",
+    "lastName": "George",
     "registrationDate": "Date.now",
     "avatar": "ZZZZ",
     "birthDate": "1977-01-01",
