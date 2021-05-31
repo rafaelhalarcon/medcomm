@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import "./SignupForm.css";
 
-const SignupForm = ({ username, firstName, lastName, password, repeatedPassword, avatar, birthDate, registrationDate, addressStreetNumber, addressStreetName, addressPostalCode, addressTown, addressProvince, phoneNumber, email, genderIdentity, specialty, practiceType, activeStatus, cpsaStanding, onSave, saveError, saveButtonCaption }) => {
-    let [updatedUsername, setUpdatedUsername] = useState(username);
+const SignupForm = ({ userName, firstName, lastName, password, repeatedPassword, avatar, birthDate, registrationDate, addressStreetNumber, addressStreetName, addressPostalCode, addressTown, addressProvince, phoneNumber, email, genderIdentity, specialty, practiceType, activeStatus, cpsaStanding, onSave, saveError, saveButtonCaption }) => {
+    let [updatedUsername, setUpdatedUsername] = useState(userName);
     let [updatedPassword, setUpdatedPassword] = useState(password);
     let [updatedRepeatedPassword, setUpdatedRepeatedPassword] = useState(repeatedPassword);
     let [updatedFirstName, setUpdatedFirstName] = useState(firstName);
@@ -27,7 +27,7 @@ const SignupForm = ({ username, firstName, lastName, password, repeatedPassword,
     async function onSaveClicked() {
         console.log("User profile has been created");
         let updatedSignupForm = {
-            username: updatedUsername,
+            userName: updatedUsername,
             password: updatedPassword,
             repeatedPassword: updatedRepeatedPassword,
             firstName: updatedFirstName,
@@ -66,8 +66,8 @@ const SignupForm = ({ username, firstName, lastName, password, repeatedPassword,
                     <div className="omrs-input-group">
                         <label className="omrs-input-underlined">
                             <input required />
-                            <span className="omrs-input-label" htmlFor="username">Username</span>
-                            <span className="omrs-input-helper" id="username" value={updatedUsername} onChange={(event) => onInputChange(event, setUpdatedUsername)}>Maximum 25 characters</span>
+                            <span className="omrs-input-label" htmlFor="userName">Username</span>
+                            <span className="omrs-input-helper" id="userName" value={updatedUsername} onChange={(event) => onInputChange(event, setUpdatedUsername)}>Maximum 25 characters</span>
                         </label>
                     </div>
                     <div className="omrs-input-group">
@@ -172,20 +172,58 @@ const SignupForm = ({ username, firstName, lastName, password, repeatedPassword,
                     </div> */}
                     <div className="omrs-select-group">
                         <label className="omrs-input-underlined">
-                         <span className="omrs-select-label">Gender Identity</span>
-                        <select className="omrs-select-helper" id="genderIdentity" value={updatedGenderIdentity} onChange={(event) => onInputChange(event, setUpdatedGenderIdentity)}>
+                            <span className="omrs-select-label">Gender Identity</span>
+                            <select className="omrs-select-helper" id="genderIdentity" value={updatedGenderIdentity} onChange={(event) => onInputChange(event, setUpdatedGenderIdentity)}>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                                 <option value="nonBinary">Non-binary</option>
                                 <option value="notDisclose">Prefer not to disclose</option>
-                        </select>
+                            </select>
                         </label>
                     </div>
-                    <div className="omrs-input-group">
+                    <div className="omrs-select-group">
                         <label className="omrs-input-underlined">
-                            <input required />
-                            <span className="omrs-input-label">Specialty</span>
-                            <span className="omrs-input-helper" id="specialty" value={updatedSpecialty} onChange={(event) => onInputChange(event, setUpdatedSpecialty)}>Select up to four</span>
+                            <span className="omrs-select-label">Specialty</span>
+                            <select className="omrs-input-helper" id="specialty" value={updatedSpecialty} onChange={(event) => onInputChange(event, setUpdatedSpecialty)}>
+                                <option value="anatomicalPathology">Anatomical Pathology</option>
+                                <option value="anesthesiology">Anesthesiology</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="cardiovascular">Cardiovalscular/Thoracic surgery</option>
+                                <option value="immunology">Immunology</option>
+                                <option value="criticalCare">Critical Care</option>
+                                <option value="dermatology">Dermatology</option>
+                                <option value="radiology">Radiology</option>
+                                <option value="emergencyMedicine">Emergency medicine</option>
+                                <option value="endocrinology">Endocrinology</option>
+                                <option value="familyMedicine">Family Medicine</option>
+                                <option value="gastroenterology">Gastroenterology</option>
+                                <option value="generalInternalMedicine">General Internal Medicine</option>
+                                <option value="generalSurgery">General surgery</option>
+                                <option value="clinicalPathology">Clinical Pathology</option>
+                                <option value="geriatricMedicine">Geriatric Medicine</option>
+                                <option value="hematology">Hematology</option>
+                                <option value="biochemistry">Biochemistry</option>
+                                <option value="genetics">Genetics</option>
+                                <option value="microbiologyInfectious">Microbiology and Infectious Diseases</option>
+                                <option value="oncology">Oncology</option>
+                                <option value="nephrology">Nephrology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="neurosurgery">Neurosurgery</option>
+                                <option value="nuclearMedicine">Nuclear Medicine</option>
+                                <option value="obstetricsGynecologist">Obstetrics/Gynecologist</option>
+                                <option value="occupationalMedicine">Occupational Medicine</option>
+                                <option value="ophtalmology">Ophtalmology</option>
+                                <option value="orthopedicSurgery">ORthopedic Surgery</option>
+                                <option value="otolaryngology">Otolaryngology</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="physMedRehab">Physical Medicina and Rehabilitation</option>
+                                <option value="plasticSurgery">Plastic Surgery</option>
+                                <option value="psychiatry">Psychiatry</option>
+                                <option value="pubHealth">Public Health and Preventive Medicine</option>
+                                <option value="respirology">Respirology</option>
+                                <option value="rheumatology">Rheumatology</option>
+                                <option value="urology">Urology</option>
+                            </select>
                         </label>
                     </div>
                     <div className="omrs-input-group">

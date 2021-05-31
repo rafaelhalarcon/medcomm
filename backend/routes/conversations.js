@@ -23,7 +23,7 @@ const AuthMiddleware = require("./../middlewares/authMiddleware")
      console.log(req.body)
      let senderId = req.authInfo.id;
     /**
-     * maybe receiverId should be receiver username? Then, you'd have to query db for user by username. Then use the returned id
+     * maybe receiverId should be receiver userName? Then, you'd have to query db for user by userName. Then use the returned id
      */
     const newConversation = new Conversation({
       participants: [senderId, req.body.receiverId], 
@@ -51,7 +51,7 @@ const AuthMiddleware = require("./../middlewares/authMiddleware")
       }
 })
 
-//   router.get("/username", async (req, res) => {
+//   router.get("/userName", async (req, res) => {
 //       console.log("what is req.params", req.params)
 //     try {
 //       const conversation = await Conversation.find({

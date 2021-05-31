@@ -47,7 +47,7 @@ import "./chatOnline.css";
 //             />
 //             <div className="chatOnlineBadge"></div>
 //           </div>
-//           <span className="chatOnlineName">{o?.username}</span>
+//           <span className="chatOnlineName">{o?.userName}</span>
 //         </div>
 //       ))}
 //     </div>

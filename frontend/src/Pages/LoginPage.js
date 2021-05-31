@@ -57,7 +57,7 @@ const LoginPage = () => {
             onSave={onSave}
             saveError={saveError}
             saveButtonCaption="Login"
-            username={userCredentials?.username || UNKNOWN} 
+            userName={userCredentials?.userName || UNKNOWN} 
             password={userCredentials?.password || UNKNOWN}
         />
     )
