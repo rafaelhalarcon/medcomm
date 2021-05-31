@@ -48,7 +48,7 @@ const UserSchema = new Schema(
       trim: true,
     },
     genderIdentity: { type: String, required: [true, "can't be blank"] },
-    specialty: { type: String, required: [true, "can't be blank"] },
+    specialties: [],
     practiceType: { values: ["private", "public"] },
     activeStatus: { values: ["practicing", "retired", "mentoring"] },
     // followers: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
