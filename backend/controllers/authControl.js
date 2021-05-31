@@ -107,15 +107,15 @@ const authControl = {
       if (!isMatch)
         return res.status(400).json({ msg: "Password is incorrect." });
 
-      res.cookie("refreshtoken", refresh_token, {
-        httpOnly: true,
-        path: "api/refresh_token",
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-      });
+      // res.cookie("refreshtoken", rf_token, {
+      //   httpOnly: true,
+      //   path: "/refresh_token",
+      //   maxAge: 30 * 24 * 60 * 60 * 1000,
+      // });
 
       res.json({
         msg: "Login Sucessful!",
-        access_token,
+        //access_token,
         user: {
           ...user._doc,
           password: "",
@@ -168,7 +168,6 @@ const authControl = {
     }
   },
 };
-
 const createAccessToken = (payload) => {
   return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
     expiresIn: "1d",
