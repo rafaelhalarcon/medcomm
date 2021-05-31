@@ -27,7 +27,7 @@ app.use("/signup", signUpRouter);
 
 //Routes login
 
-app.use("/login", loginRouter);
+app.use("/api/login", loginRouter);
 
 
 

@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-const LoginForm = ({ userName, password, onSave, saveError, saveButtonCaption }) => {
+const LoginForm = ({ email, password, onSave, saveError, saveButtonCaption }) => {
 
-    let [inputUsername, setInputUsername] = useState(userName)
+    let [inputEmail, setInputEmail] = useState(email)
     let [inputPassword, setInputPassword] = useState(password)
 
     async function onSaveClicked() {
         console.log("User is loging in");
         let inputLogin = {
-            userName: inputUsername,
+            email: inputEmail,
             password: inputPassword
         }
         console.log(inputLogin);
@@ -19,7 +19,7 @@ const LoginForm = ({ userName, password, onSave, saveError, saveButtonCaption })
         setFunction(event.target.value);
     };
 
-    let loginUserProfileInvalid = !inputUsername || (inputUsername.trim().lenght === 0);
+    let loginUserProfileInvalid = !inputEmail || (inputEmail.trim().lenght === 0);
 
     return (
         <div className="container">
@@ -27,8 +27,8 @@ const LoginForm = ({ userName, password, onSave, saveError, saveButtonCaption })
                     <div className="omrs-input-group">
                         <label className="omrs-input-underlined">
                             <input required />
-                            <span className="omrs-input-label" htmlFor="userName">Username</span>
-                            <span className="omrs-input-helper" id="userName" value={inputUsername} onChange={(event) => onInputChange(event, setInputUsername)}>Maximum 25 characters</span>
+                            <span className="omrs-input-label" htmlFor="email">Email</span>
+                            <span className="omrs-input-helper" id="Email" value={inputEmail} onChange={(event) => onInputChange(event, setInputEmail)}>Maximum 25 characters</span>
                         </label>
                     </div>
                     <div className="omrs-input-group">
@@ -38,7 +38,7 @@ const LoginForm = ({ userName, password, onSave, saveError, saveButtonCaption })
                             <span className="omrs-input-helper" id="password" value={inputPassword} onChange={(event) => onInputChange(event, setInputPassword)}>Maximum 25 characters</span>
                         </label>
                     </div>
-            <button className="button" disabled={ loginUserProfileInvalid } onClick={ onSaveClicked }>{saveButtonCaption}</button>
+            <button className="button"  onClick={ onSaveClicked }>{saveButtonCaption}</button>
             { saveError && <div>{saveError}</div> }
             </form>
         </div>

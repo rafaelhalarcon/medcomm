@@ -113,10 +113,10 @@ const authControl = {
       //   maxAge: 30 * 24 * 60 * 60 * 1000,
       // });
 
-      res.json({
+      res.send({
         msg: "Login Sucessful!",
         //access_token,
-        user: {
+        user: { 
           ...user._doc,
           password: "",
         },
