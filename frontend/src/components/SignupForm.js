@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import "./SignupForm.css";
 
-const SignupForm = ({ username, firstName, lastName, password, repeatedPassword, avatar, birthDate, registrationDate, addressStreetNumber, addressStreetName, addressPostalCode, addressTown, addressProvince, phoneNumber, email, genderIdentity, specialty, practiceType, activeStatus, cpsaStanding, onSave, saveError, saveButtonCaption }) => {
-    let [updatedUsername, setUpdatedUsername] = useState(username);
+const SignupForm = ({ userName, firstName, lastName, password, repeatedPassword, avatar, birthDate, registrationDate, addressStreetNumber, addressStreetName, addressPostalCode, addressTown, addressProvince, phoneNumber, email, genderIdentity, specialty, practiceType, activeStatus, cpsaStanding, onSave, saveError, saveButtonCaption }) => {
+    let [updatedUsername, setUpdatedUsername] = useState(userName);
     let [updatedPassword, setUpdatedPassword] = useState(password);
     let [updatedRepeatedPassword, setUpdatedRepeatedPassword] = useState(repeatedPassword);
     let [updatedFirstName, setUpdatedFirstName] = useState(firstName);
@@ -27,7 +27,7 @@ const SignupForm = ({ username, firstName, lastName, password, repeatedPassword,
     async function onSaveClicked() {
         console.log("User profile has been created");
         let updatedSignupForm = {
-            username: updatedUsername,
+            userName: updatedUsername,
             password: updatedPassword,
             repeatedPassword: updatedRepeatedPassword,
             firstName: updatedFirstName,
@@ -66,8 +66,8 @@ const SignupForm = ({ username, firstName, lastName, password, repeatedPassword,
                     <div className="omrs-input-group">
                         <label className="omrs-input-underlined">
                             <input required />
-                            <span className="omrs-input-label" htmlFor="username">Username</span>
-                            <span className="omrs-input-helper" id="username" value={updatedUsername} onChange={(event) => onInputChange(event, setUpdatedUsername)}>Maximum 25 characters</span>
+                            <span className="omrs-input-label" htmlFor="userName">Username</span>
+                            <span className="omrs-input-helper" id="userName" value={updatedUsername} onChange={(event) => onInputChange(event, setUpdatedUsername)}>Maximum 25 characters</span>
                         </label>
                     </div>
                     <div className="omrs-input-group">

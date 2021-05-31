@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-const LoginForm = ({ username, password, onSave, saveError, saveButtonCaption }) => {
+const LoginForm = ({ userName, password, onSave, saveError, saveButtonCaption }) => {
 
-    let [inputUsername, setInputUsername] = useState(username)
+    let [inputUsername, setInputUsername] = useState(userName)
     let [inputPassword, setInputPassword] = useState(password)
 
     async function onSaveClicked() {
         console.log("User is loging in");
         let inputLogin = {
-            username: inputUsername,
+            userName: inputUsername,
             password: inputPassword
         }
         console.log(inputLogin);
@@ -27,8 +27,8 @@ const LoginForm = ({ username, password, onSave, saveError, saveButtonCaption })
                     <div className="omrs-input-group">
                         <label className="omrs-input-underlined">
                             <input required />
-                            <span className="omrs-input-label" htmlFor="username">Username</span>
-                            <span className="omrs-input-helper" id="username" value={inputUsername} onChange={(event) => onInputChange(event, setInputUsername)}>Maximum 25 characters</span>
+                            <span className="omrs-input-label" htmlFor="userName">Username</span>
+                            <span className="omrs-input-helper" id="userName" value={inputUsername} onChange={(event) => onInputChange(event, setInputUsername)}>Maximum 25 characters</span>
                         </label>
                     </div>
                     <div className="omrs-input-group">

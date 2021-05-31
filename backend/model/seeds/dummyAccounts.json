@@ -23,7 +23,7 @@
     "cpsaStanding": 123456
 }, 
 {
-    "username": "evolveu_1",
+    "userName": "evolveu_1",
 	"password": "Evolve_U",
     "firstName": "Femi",
     "lastName": "George",
@@ -44,7 +44,7 @@
     "cpsaStanding": 654321
 }, 
 {
-    "username": "nurse_ratchet",
+    "userName": "nurse_ratchet",
 	"password": "Evolve_U",
     "firstName": "Nurse",
     "lastName": "Ratchet",

@@ -56,7 +56,7 @@ const RegistrationPage = () => {
             onSave={onSave}
             saveError={saveError}
             saveButtonCaption="Create User"
-            username={userRecord?.username || UNKNOWN} 
+            userName={userRecord?.userName || UNKNOWN} 
             firstName={userRecord?.firstName || UNKNOWN} 
             lastName={userRecord?.lastName || UNKNOWN} 
             password={userRecord?.password || UNKNOWN}
