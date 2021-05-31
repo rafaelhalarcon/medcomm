@@ -16,7 +16,7 @@ const LoginPage = () => {
         console.log("User credentials")
         console.log(userCredentials);
         const getUserCredentials = async () => {
-            let response = await fetch("api/login/"+userId);
+            let response = await fetch("api/login/"+userCredentials._doc);
             let data = await response.json();
             setUserCredentials(data);
         }
@@ -26,7 +26,7 @@ const LoginPage = () => {
     let onSave = async (updatedSignupForm) => {
         console.log(updatedSignupForm);
         try {
-            let postResponse = await fetch('/api/login/'+userCredentials._id, {
+            let postResponse = await fetch('/api/login/'+userCredentials._doc, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ const LoginPage = () => {
             else {
                 setSaveError(undefined)
                 // go back to the list view!
-                history.push("/signup/register/"+userCredentials._id)
+                history.push("/signup/register/"+userCredentials._doc)
             }
         }
         catch (error) {
