@@ -24,20 +24,14 @@ const LoginForm = ({ email, password, onSave, saveError, saveButtonCaption }) =>
     return (
         <div className="container">
             <form>
-                    <div className="omrs-input-group">
-                        <label className="omrs-input-underlined">
-                            <input required />
-                            <span className="omrs-input-label" htmlFor="email">Email</span>
-                            <span className="omrs-input-helper" id="Email" value={inputEmail} onChange={(event) => onInputChange(event, setInputEmail)}>Maximum 25 characters</span>
-                        </label>
-                    </div>
-                    <div className="omrs-input-group">
-                        <label className="omrs-input-underlined">
-                            <input required />
-                            <span className="omrs-input-label" htmlFor="password">Password</span>
-                            <span className="omrs-input-helper" id="password" value={inputPassword} onChange={(event) => onInputChange(event, setInputPassword)}>Maximum 25 characters</span>
-                        </label>
-                    </div>
+            <div className="field-group">
+                    <input type="text" className="inputText" required />
+                    <span className="floating-label" htmlFor="email" value={inputEmail} onChange={(event) => onInputChange(event, setInputEmail)}>Username (email)</span>
+                </div>
+                <div className="field-group">
+                    <input type="text" className="inputText" required />
+                    <span className="floating-label" id="password" htmlFor="password" value={inputPassword} onChange={(event) => onInputChange(event, setInputPassword)}>Password</span>
+                </div>
             <button className="button"  onClick={ onSaveClicked }>{saveButtonCaption}</button>
             { saveError && <div>{saveError}</div> }
             </form>

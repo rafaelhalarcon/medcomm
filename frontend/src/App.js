@@ -10,12 +10,9 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Your trusted source in communication <br />
-            from Doctor to Doctor.
-          </p>
+        <header className="App-header">
+            Your trusted source in communication from Doctor to Doctor.
           <a><Link to="/login">Login</Link>&nbsp;&nbsp;<Link to="/register">Signup</Link></a>
         </header>
         <Switch>
