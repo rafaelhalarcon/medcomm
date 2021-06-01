@@ -21,7 +21,7 @@ const LoginPage = () => {
             setUserCredentials(data);
         }
         getUserCredentials();
-    }, [userId]);
+    }, [userId, userCredentials]);
         
     let onSave = async (updatedSignupForm) => {
         console.log(updatedSignupForm);

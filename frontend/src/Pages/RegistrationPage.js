@@ -13,9 +13,10 @@ const RegistrationPage = () => {
     const { userId } = useParams();
 
     useEffect(() => {
-        console.log("user record id", userRecord);
+        console.log("user record id"); 
+        console.log(userRecord);
         const getUsername = async () => {
-            let response = await fetch("api/register/"+userRecord._id);
+            let response = await fetch("api/register/");
             let data = await response.json();
             setUserRecord(data);
         }
@@ -23,6 +24,7 @@ const RegistrationPage = () => {
     }, [userRecord]);
         
     let onSave = async (updatedSignupForm) => {
+        console.log("updated signup form")
         console.log(updatedSignupForm);
         try {
             let postResponse = await fetch('/signup/register/', {

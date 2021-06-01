@@ -1,7 +1,6 @@
+import "./App.css";
 import logo from "./commed_2_1.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-import "./App.css";
 
 import RegistrationPage from "./Pages/RegistrationPage";
 import LoginPage from "./Pages/LoginPage";
@@ -17,29 +16,26 @@ const App = () => {
             Your trusted source in communication <br />
             from Doctor to Doctor.
           </p>
+          <a><Link to="/login">Login</Link>&nbsp;&nbsp;<Link to="/register">Signup</Link></a>
         </header>
-        <div>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Signup</Link>
-        </div>
-      </div>
-      <Switch>
-        <Route path="/register">
-          <RegistrationPage />
-        </Route>
-        {/* <Route path="/user/:userId/edit">
+        <Switch>
+          <Route path="/register">
+            <RegistrationPage />
+          </Route>
+          {/* <Route path="/user/:userId/edit">
       <UserEditPage />
     </Route>
     <Route path="/user/:userId">
       <UserProfile />
     </Route>*/}
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        {/* <Route path="/Messaging">
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          {/* <Route path="/Messaging">
           <Messaging />
         </Route> */}
-      </Switch>
+        </Switch>
+    </div>
     </Router>
   );
 };
