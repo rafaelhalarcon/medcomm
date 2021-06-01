@@ -15,8 +15,7 @@
 	bottom: 10px;
 	left: 2px;
 	font-size: 11px;
-	opacity: 1;
-	background: #ffffff;
+	opacity: 0;
 	padding: 3px;
   }
   
@@ -59,7 +58,6 @@
 	left: 20px;
 	top: 18px;
 	transition: 0.2s ease all;
-	opacity: 0.5;
   }
   .button {
 	color: #86B689;
