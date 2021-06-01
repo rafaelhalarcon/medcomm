@@ -116,8 +116,9 @@ const authControl = {
       res.send({
         msg: "Login Sucessful!",
         //access_token,
+
         user: {
-          ...user._doc,
+          id: user._id,
           password: "",
         },
       });
