@@ -96,7 +96,7 @@ const authControl = {
     try {
       const { email, password } = req.body;
 
-      const user = await Users.findOne({ email }).populate("");
+      const user = await Users.findOne({ email });
 
       //Checks to see if email exists
       if (!user)
@@ -116,7 +116,7 @@ const authControl = {
       res.send({
         msg: "Login Sucessful!",
         //access_token,
-        user: { 
+        user: {
           ...user._doc,
           password: "",
         },
