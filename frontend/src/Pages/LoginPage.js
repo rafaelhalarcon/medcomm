@@ -5,38 +5,37 @@ import LoginForm from "../components/LoginForm";
 
 const UNKNOWN = "unknown";
 const LoginPage = () => {
-  let [userCredentials, setUserCredentials] = useState({});
+  //   let [userCredentials, setUserCredentials] = useState({});
   let [saveError, setSaveError] = useState();
 
   let history = useHistory();
-  const { userId } = useParams();
 
-  useEffect(() => {
-    console.log("User credentials");
-    console.log(userCredentials);
-    const getUserCredentials = async () => {
-      let response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userCredentials),
-      });
-      let data = await response.json();
-      setUserCredentials(data);
-    };
-    getUserCredentials();
-  }, [userId, userCredentials]);
+  //   useEffect(() => {
+  //     console.log("User credentials");
+  //     console.log(userCredentials);
+  //     const getUserCredentials = async () => {
+  //       let response = await fetch("/api/login", {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(userCredentials),
+  //       });
+  //       let data = await response.json();
+  //       setUserCredentials(data);
+  //     };
+  //     getUserCredentials();
+  //   }, [userId, userCredentials]);
 
-  let onSave = async (updatedSignupForm) => {
-    console.log(updatedSignupForm);
+  let onSave = async (loginCredentials) => {
+    console.log(loginCredentials);
     try {
-      let postResponse = await fetch("/api/login", {
+      let postResponse = await fetch("/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(userCredentials),
+        body: JSON.stringify(loginCredentials),
       });
       // the server didn't like the data for some reason
       console.log("Create response is", postResponse);
@@ -45,9 +44,11 @@ const LoginPage = () => {
         console.log("We had an error.  it was: ", errorMessage);
         setSaveError(errorMessage);
       } else {
+        const userData = await postResponse.json();
+        localStorage.setItem("user", userData.user.id);
         setSaveError(undefined);
         // go back to the list view!
-        history.push("/signup/register/" + userCredentials._doc);
+        history.push("/userprofile");
       }
     } catch (error) {
       // the server cannot be reached
@@ -60,8 +61,8 @@ const LoginPage = () => {
       onSave={onSave}
       saveError={saveError}
       saveButtonCaption="Login"
-      userName={userCredentials?.userName || UNKNOWN}
-      password={userCredentials?.password || UNKNOWN}
+      //   userName={userCredentials?.userName || UNKNOWN}
+      //   password={userCredentials?.password || UNKNOWN}
     />
   );
 

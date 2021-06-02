@@ -4,10 +4,9 @@ const Schema = mongoose.Schema;
 
 const conversationSchema = new Schema(
   {
-    participants:{ 
-        type:Array,
+    participants: {
+      type: Array,
     },
-    ],
   },
   {
     timestamps: true,
