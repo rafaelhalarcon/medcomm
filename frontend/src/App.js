@@ -1,9 +1,10 @@
 import "./App.css";
 import logo from "./commed_2_1.svg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import axios from "axios";
+//import axios from "axios";
 import RegistrationPage from "./Pages/RegistrationPage";
 import LoginPage from "./Pages/LoginPage";
+import UserProfile from "./Pages/UserProfile"
 // import Messaging from "./Pages/Messaging";
 
 const App = () => {
@@ -24,14 +25,14 @@ const App = () => {
           </Route>
           {/* <Route path="/userprofile">
       <UserEditPage />
-    </Route>
-    <Route path="/userprofile">
+  </Route>*/}
+    <Route exact path="/userProfile">
       <UserProfile />
-    </Route>*/}
-          <Route path="/login">
+    </Route>
+          {/* <Route path="/login">
             <LoginPage />
           </Route>
-          {/* <Route path="/Messaging">
+           <Route path="/Messaging">
           <Messaging />
         </Route> */}
         </Switch>
