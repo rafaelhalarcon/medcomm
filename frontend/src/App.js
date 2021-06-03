@@ -32,9 +32,9 @@ const App = () => {
            <Route path="/login">
             <LoginPage />
           </Route>
-           <Route path="/Messaging">
+           {/* <Route path="/Messaging">
           <Messaging />
-        </Route>
+        </Route> */}
         </Switch>
       </div>
     </Router>
