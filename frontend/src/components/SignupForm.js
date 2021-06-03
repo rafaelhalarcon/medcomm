@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import "./SignupForm.css";
 
-const SignupForm = ({ userName, firstName, lastName, password, repeatedPassword, avatar, birthDate, registrationDate, addressStreetNumber, addressStreetName, addressPostalCode, addressTown, addressProvince, phoneNumber, email, genderIdentity, specialty, practiceType, activeStatus, cpsaStanding, onSave, saveError, saveButtonCaption }) => {
-    let [updatedUsername, setUpdatedUsername] = useState();
+const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, birthDate, registrationDate, addressStreetNumber, addressStreetName, addressPostalCode, addressTown, addressProvince, phoneNumber, email, genderIdentity, specialty, practiceType, activeStatus, cpsaStanding, onSave, saveError, saveButtonCaption }) => {
+    let [updatedEmail, setUpdatedEmail] = useState();
     let [updatedPassword, setUpdatedPassword] = useState();
     let [updatedRepeatedPassword, setUpdatedRepeatedPassword] = useState();
     let [updatedFirstName, setUpdatedFirstName] = useState();
@@ -17,7 +17,6 @@ const SignupForm = ({ userName, firstName, lastName, password, repeatedPassword,
     let [updatedAddressTown, setUpdatedAddressTown] = useState();
     let [updatedAddressProvince, setUpdatedAddressProvince] = useState();
     let [updatedPhoneNumber, setUpdatedPhoneNumber] = useState();
-    let [updatedEmail, setUpdatedEmail] = useState();
     let [updatedGenderIdentity, setUpdatedGenderIdentity] = useState();
     let [updatedSpecialty, setUpdatedSpecialty] = useState();
     let [updatedPracticeType, setUpdatedPracticeType] = useState();
@@ -28,7 +27,7 @@ const SignupForm = ({ userName, firstName, lastName, password, repeatedPassword,
     async function onSaveClicked() {
         console.log("User profile has been created");
         let updatedSignupForm = {
-            userName: updatedUsername,
+            email: updatedEmail,
             password: updatedPassword,
             repeatedPassword: updatedRepeatedPassword,
             firstName: updatedFirstName,
@@ -42,7 +41,6 @@ const SignupForm = ({ userName, firstName, lastName, password, repeatedPassword,
             addressTown: updatedAddressTown,
             addressProvince: updatedAddressProvince,
             phoneNumber: updatedPhoneNumber,
-            email: updatedEmail,
             genderIdentity: updatedGenderIdentity,
             specialty: updatedSpecialty,
             practiceType: updatedPracticeType,
@@ -60,14 +58,14 @@ const SignupForm = ({ userName, firstName, lastName, password, repeatedPassword,
 
     };
 
-    let createUserProfileInvalid = !updatedUsername || (updatedUsername.trim().lenght === 0);
+    let createUserProfileInvalid = !updatedEmail || (updatedEmail.trim().lenght === 0);
 
     return (
         <div className="container">
             <h1>Signup form</h1>
             <form >
-                <input type="text" id="userName" name="userName" placeholder=" " value={updatedUsername} onChange={(event) => onInputChange(event, setUpdatedUsername)} required />
-                <label htmlFor="userName">Username</label>
+                <input type="text" id="email" name="email" placeholder=" " value={updatedEmail} onChange={(event) => onInputChange(event, setUpdatedEmail)} required />
+                <label htmlFor="email" >Email</label>
                 <input type="password" id="password" name="password" placeholder=" " value={updatedPassword} onChange={(event) => onInputChange(event, setUpdatedPassword)} required />
                 <label htmlFor="password" >Password</label>
                 <input type="text" id="repeatedPassword" name="repeatedPassword" placeholder=" " value={updatedRepeatedPassword} onChange={(event) => onInputChange(event, setUpdatedRepeatedPassword)} required />
@@ -85,21 +83,15 @@ const SignupForm = ({ userName, firstName, lastName, password, repeatedPassword,
                 <label htmlFor="addressStreetNumber"  >Street number</label>
                 <input type="text" id="addressStreetName" name="addressStreetName" placeholder=" " value={updatedAddressStreetName} onChange={(event) => onInputChange(event, setUpdatedAddressStreetName)} required />
                 <label htmlFor="addressStreetName" >Street name</label>
-
                 <input type="text" id="addressPostalCode" name="addressPostalCode" placeholder=" " value={updatedAddressPostalCode} onChange={(event) => onInputChange(event, setUpdatedAddressPostalCode)} required />
                 <label htmlFor="addressPostalCode" >Postal code ___-___</label>
-
                 <input type="text" id="addressTown" name="addressTown" placeholder=" " value={updatedAddressTown} onChange={(event) => onInputChange(event, setUpdatedAddressTown)} required />
                 <label htmlFor="addressTown" >Town</label>
-
                 <input type="text" id="addressProvince" name="addressProvince" placeholder=" " value={updatedAddressProvince} onChange={(event) => onInputChange(event, setUpdatedAddressProvince)} required />
                 <label htmlFor="addressProvince" >Province</label>
-
                 <input type="text" id="phoneNumber" name="phoneNumber" placeholder=" " value={updatedPhoneNumber} onChange={(event) => onInputChange(event, setUpdatedPhoneNumber)} required />
                 <label htmlFor="phoneNumber" >Phone number (include area code)</label>
-
-                <input type="text" id="email" name="email" placeholder=" " value={updatedEmail} onChange={(event) => onInputChange(event, setUpdatedEmail)} required />
-                <label htmlFor="email" >Email</label><br /><br /><br />
+                <br /><br /><br />
                 <div> &nbsp;&nbsp;  Gender Identity</div>
                 <input type="radio" id="male" name="gender" value="male" />
                 <label htmlFor="male">Male</label>
