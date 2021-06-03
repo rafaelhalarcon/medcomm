@@ -76,7 +76,7 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
                 <label htmlFor="lastName" >Last name</label>
                 <input type="file" id="avatar" name="avatar" placeholder="" value={updatedAvatar} onChange={(event) => onInputChange(event, setUpdatedAvatar)} required />
                 <label htmlFor="avatar" >Avatar</label><br />
-                <input type="date" id="birthDate" name="birthDate" placeholder="" value={updatedBirthDate} onChange={(event) => onInputChange(event, setUpdatedBirthDate)} required />
+                <input type="date" id="birthDate" name="birthDate" placeholder="" value={updatedBirthDate} onChange={(event) => onInputChange(event, setUpdatedBirthDate)} />
                 <label htmlFor="birthDate" >Birthdate</label><br />
                 <div > Address</div>
                 <input type="text" id="addressStreetNumber" name="addressStreetNumber" placeholder=" " value={updatedAddressStreetNumber} onChange={(event) => onInputChange(event, setUpdatedAddressStreetNumber)} required />
@@ -93,14 +93,14 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
                 <label htmlFor="phoneNumber" >Phone number (include area code)</label>
                 <br /><br /><br />
                 <div> &nbsp;&nbsp;  Gender Identity</div>
-                <input type="radio" id="male" name="gender" value="male" />
-                <label htmlFor="male">Male</label>
-                <input type="radio" id="female" name="gender" value="female" />
-                <label htmlFor="female">Female</label>
-                <input type="radio" id="nonBinary" name="gender" value="nonBinary" />
-                <label htmlFor="other">Non-binary</label>
-                <input type="radio" id="preferNotDisclose" name="gender" value="preferNotDisclose" />
-                <label htmlFor="other">Prefer not to disclose</label><br /><br />
+                <input type="radio" id="male" name="genderIdentity" value="male" />
+                <label htmlFor="genderIdentity">Male</label>
+                <input type="radio" id="female" name="genderIdentity" value="female" />
+                <label htmlFor="genderIdentity">Female</label>
+                <input type="radio" id="nonBinary" name="genderIdentity" value="nonBinary" />
+                <label htmlFor="genderIdentity">Non-binary</label>
+                <input type="radio" id="preferNotDisclose" name="genderIdentity" value="preferNotDisclose" />
+                <label htmlFor="genderIdentity">Prefer not to disclose</label><br /><br />
                 <span>Specialty</span>
                 <select className="inputText" id="specialty" value={updatedSpecialty} onChange={(event) => onInputChange(event, setUpdatedSpecialty)}>
                     <option value="anatomicalPathology">Anatomical Pathology</option>

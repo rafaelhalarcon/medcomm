@@ -4,12 +4,13 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    userName: {
+    email: {
       type: String,
-      required: true,
-      unique: true,
+      lowercase: true,
+      required: [true, "can't be blank"],
+      match: [/\S+@\S+\.\S+/, "is invalid"],
+      index: true,
       trim: true,
-      maxLength: 25,
     },
     password: { type: String, required: true, maxLenght: 12 },
     firstName: { type: String, required: true, trim: true, maxLength: 25 },
@@ -39,21 +40,13 @@ const UserSchema = new Schema(
       required: [true, "can't be blank"],
       match: [/\d{3}-\d{3}-\d{4}/, "is invalid"],
     },
-    email: {
-      type: String,
-      lowercase: true,
-      required: [true, "can't be blank"],
-      match: [/\S+@\S+\.\S+/, "is invalid"],
-      index: true,
-      trim: true,
-    },
-    genderIdentity: { type: String, required: [true, "can't be blank"] },
-    specialties: [{ type: String, required: [true, "can't be blank"] }],
-    practiceType: { type: String, required: true },
-    activeStatus: { type: String, required: true },
+    genderIdentity: { type: String,  },
+    specialties: [{ type: String,  }],
+    practiceType: { type: String,  },
+    activeStatus: { type: String,  },
     // followers: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
     // following: [{ type: mongoose.Types.ObjectId, ref: 'Med-Com' }],
-    cpsaStanding: { type: Number, required: [true, "can't be blank"] },
+    cpsaStanding: { type: Number,  },
   },
   {
     timestamps: true,
