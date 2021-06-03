@@ -25,7 +25,7 @@ const AuthMiddleware = require("../middlewares/authMiddleware")
 //         }
 // })
 
-
+//Get User Profile 
 router.get("/getById/:id", async (req, res) => {
     try 
         {
