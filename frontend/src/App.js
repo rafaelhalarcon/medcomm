@@ -29,12 +29,12 @@ const App = () => {
     <Route exact path="/userProfile">
       <UserProfile />
     </Route>
-          {/* <Route path="/login">
+           <Route path="/login">
             <LoginPage />
           </Route>
            <Route path="/Messaging">
           <Messaging />
-        </Route> */}
+        </Route>
         </Switch>
       </div>
     </Router>
