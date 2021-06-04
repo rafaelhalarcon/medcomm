@@ -9,10 +9,9 @@ const authControl = {
     console.log("I am hitting signup/register POST");
     try {
       const {
+        email,
         lastName,
         firstName,
-        userName,
-        email,
         password,
         genderIdentity,
         addressStreetNumber,
@@ -27,15 +26,15 @@ const authControl = {
         activeStatus,
         cpsaStanding,
       } = req.body;
-      let newUserName = userName; //.toLowerCase().replace(/ /g, "");
+      let newEmail = email; //.toLowerCase().replace(/ /g, "");
 
       //checks to see if a user name exists
-      const user_name = await Users.findOne({ userName: newUserName });
-      if (user_name)
-        return res.status(400).json({ msg: "This User Name already exists." });
+      // const user_name = await Users.findOne({ userName: newUserName });
+      // if (user_name)
+      //   return res.status(400).json({ msg: "This User Name already exists." });
 
       //checks to see if a user email exists
-      const user_email = await Users.findOne({ email });
+      const user_email = await Users.findOne({ newEmail });
       if (user_email)
         return res.status(400).json({ msg: "This email already exists." });
 
@@ -48,10 +47,10 @@ const authControl = {
       const passwordHash = await bcrypt.hash(password, 12);
 
       const newUser = new Users({
+        email: newEmail,
         lastName,
         firstName,
-        userName: newUserName,
-        email,
+        // userName: newUserName,
         password: passwordHash,
         genderIdentity,
         addressStreetNumber,
