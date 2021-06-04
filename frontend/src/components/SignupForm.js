@@ -24,7 +24,7 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
     let [updatedCpsaStanding, setUpdatedCpsaStanding] = useState("159753");
 
 
-    async function onSaveClicked() {
+    function onSaveClicked(ev) {
         console.log("User profile has been created");
         let updatedSignupForm = {
             email: updatedEmail,
@@ -49,6 +49,7 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
         }
         console.log(updatedSignupForm);
         onSave(updatedSignupForm);
+        ev.preventDefault();
 
 
     }
