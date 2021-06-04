@@ -14,10 +14,10 @@ const App = () => {
         <img src={logo} className="App-logo" alt="logo" />
         <header className="App-header">
           Your trusted source in communication from Doctor to Doctor.
-          <a>
+          <div>
             <Link to="/login">Login</Link>&nbsp;&nbsp;
             <Link to="/register">Signup</Link>
-          </a>
+          </div>
         </header>
         <Switch>
           <Route exact path="/register">
@@ -25,10 +25,10 @@ const App = () => {
           </Route>
           {/* <Route path="/userprofile">
       <UserEditPage />
-  </Route>*/}
+  </Route>
     <Route exact path="/userProfile">
       <UserProfile />
-    </Route>
+    </Route>*/}
            <Route path="/login">
             <LoginPage />
           </Route>

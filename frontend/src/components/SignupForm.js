@@ -3,25 +3,25 @@ import { useState } from "react";
 import "./SignupForm.css";
 
 const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, birthDate, registrationDate, addressStreetNumber, addressStreetName, addressPostalCode, addressTown, addressProvince, phoneNumber, email, genderIdentity, specialty, practiceType, activeStatus, cpsaStanding, onSave, saveError, saveButtonCaption }) => {
-    let [updatedEmail, setUpdatedEmail] = useState();
-    let [updatedPassword, setUpdatedPassword] = useState();
-    let [updatedRepeatedPassword, setUpdatedRepeatedPassword] = useState();
-    let [updatedFirstName, setUpdatedFirstName] = useState();
-    let [updatedLastName, setUpdatedLastName] = useState();
+    let [updatedEmail, setUpdatedEmail] = useState("pedro@gmail.com");
+    let [updatedPassword, setUpdatedPassword] = useState("Evolve_U");
+    let [updatedRepeatedPassword, setUpdatedRepeatedPassword] = useState("Evolve_U");
+    let [updatedFirstName, setUpdatedFirstName] = useState("Pedro");
+    let [updatedLastName, setUpdatedLastName] = useState("Pedro");
     let [updatedAvatar, setUpdatedAvatar] = useState();
     let [updatedBirthDate, setUpdatedBirthDate] = useState();
     let [updatedRegistrationDate, setUpdatedRegistrationDate] = useState();
-    let [updatedAddressStreetNumber, setUpdatedAddressStreetNumber] = useState();
-    let [updatedAddressStreetName, setUpdatedAddressStreetName] = useState();
-    let [updatedAddressPostalCode, setUpdatedAddressPostalCode] = useState();
-    let [updatedAddressTown, setUpdatedAddressTown] = useState();
-    let [updatedAddressProvince, setUpdatedAddressProvince] = useState();
-    let [updatedPhoneNumber, setUpdatedPhoneNumber] = useState();
-    let [updatedGenderIdentity, setUpdatedGenderIdentity] = useState();
-    let [updatedSpecialty, setUpdatedSpecialty] = useState();
-    let [updatedPracticeType, setUpdatedPracticeType] = useState();
-    let [updatedActiveStatus, setUpdatedActiveStatus] = useState();
-    let [updatedCpsaStanding, setUpdatedCpsaStanding] = useState();
+    let [updatedAddressStreetNumber, setUpdatedAddressStreetNumber] = useState("2222");
+    let [updatedAddressStreetName, setUpdatedAddressStreetName] = useState("22 ave");
+    let [updatedAddressPostalCode, setUpdatedAddressPostalCode] = useState("T3H-4L8");
+    let [updatedAddressTown, setUpdatedAddressTown] = useState("Calgary");
+    let [updatedAddressProvince, setUpdatedAddressProvince] = useState("Alberta");
+    let [updatedPhoneNumber, setUpdatedPhoneNumber] = useState("4031234567");
+    let [updatedGenderIdentity, setUpdatedGenderIdentity] = useState("Male");
+    let [updatedSpecialty, setUpdatedSpecialty] = useState("Proctologist");
+    let [updatedPracticeType, setUpdatedPracticeType] = useState("Private");
+    let [updatedActiveStatus, setUpdatedActiveStatus] = useState("Active");
+    let [updatedCpsaStanding, setUpdatedCpsaStanding] = useState("159753");
 
 
     async function onSaveClicked() {
@@ -64,42 +64,42 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
         <div className="container">
             <h1>Signup form</h1>
             <form >
-                <input type="text" id="email" name="email" placeholder=" " value={updatedEmail} onChange={(event) => onInputChange(event, setUpdatedEmail)} required />
+                <input type="text" id="email" name="email" placeholder=" " value={updatedEmail} onChange={(event) => onInputChange(event, setUpdatedEmail)}  />
                 <label htmlFor="email" >Email</label>
-                <input type="password" id="password" name="password" placeholder=" " value={updatedPassword} onChange={(event) => onInputChange(event, setUpdatedPassword)} required />
+                <input type="password" id="password" name="password" placeholder=" " value={updatedPassword} onChange={(event) => onInputChange(event, setUpdatedPassword)}  />
                 <label htmlFor="password" >Password</label>
-                <input type="text" id="repeatedPassword" name="repeatedPassword" placeholder=" " value={updatedRepeatedPassword} onChange={(event) => onInputChange(event, setUpdatedRepeatedPassword)} required />
+                <input type="text" id="repeatedPassword" name="repeatedPassword" placeholder=" " value={updatedRepeatedPassword} onChange={(event) => onInputChange(event, setUpdatedRepeatedPassword)}  />
                 <label htmlFor="repeatedPassword" >Repeat password</label>
-                <input type="text" id="firstName" name="firstName" placeholder=" " value={updatedFirstName} onChange={(event) => onInputChange(event, setUpdatedFirstName)} required />
+                <input type="text" id="firstName" name="firstName" placeholder=" " value={updatedFirstName} onChange={(event) => onInputChange(event, setUpdatedFirstName)}  />
                 <label htmlFor="firstName" >First name</label>
-                <input type="text" id="lastName" name="lastName" placeholder=" " value={updatedLastName} onChange={(event) => onInputChange(event, setUpdatedLastName)} required />
+                <input type="text" id="lastName" name="lastName" placeholder=" " value={updatedLastName} onChange={(event) => onInputChange(event, setUpdatedLastName)}  />
                 <label htmlFor="lastName" >Last name</label>
-                <input type="file" id="avatar" name="avatar" placeholder="" value={updatedAvatar} onChange={(event) => onInputChange(event, setUpdatedAvatar)} required />
+                <input type="file" id="avatar" name="avatar" placeholder="" value={updatedAvatar} onChange={(event) => onInputChange(event, setUpdatedAvatar)}  />
                 <label htmlFor="avatar" >Avatar</label><br />
                 <input type="date" id="birthDate" name="birthDate" placeholder="" value={updatedBirthDate} onChange={(event) => onInputChange(event, setUpdatedBirthDate)} />
                 <label htmlFor="birthDate" >Birthdate</label><br />
                 <div > Address</div>
-                <input type="text" id="addressStreetNumber" name="addressStreetNumber" placeholder=" " value={updatedAddressStreetNumber} onChange={(event) => onInputChange(event, setUpdatedAddressStreetNumber)} required />
+                <input type="text" id="addressStreetNumber" name="addressStreetNumber" placeholder=" " value={updatedAddressStreetNumber} onChange={(event) => onInputChange(event, setUpdatedAddressStreetNumber)}  />
                 <label htmlFor="addressStreetNumber"  >Street number</label>
-                <input type="text" id="addressStreetName" name="addressStreetName" placeholder=" " value={updatedAddressStreetName} onChange={(event) => onInputChange(event, setUpdatedAddressStreetName)} required />
+                <input type="text" id="addressStreetName" name="addressStreetName" placeholder=" " value={updatedAddressStreetName} onChange={(event) => onInputChange(event, setUpdatedAddressStreetName)}  />
                 <label htmlFor="addressStreetName" >Street name</label>
-                <input type="text" id="addressPostalCode" name="addressPostalCode" placeholder=" " value={updatedAddressPostalCode} onChange={(event) => onInputChange(event, setUpdatedAddressPostalCode)} required />
+                <input type="text" id="addressPostalCode" name="addressPostalCode" placeholder=" " value={updatedAddressPostalCode} onChange={(event) => onInputChange(event, setUpdatedAddressPostalCode)}  />
                 <label htmlFor="addressPostalCode" >Postal code ___-___</label>
-                <input type="text" id="addressTown" name="addressTown" placeholder=" " value={updatedAddressTown} onChange={(event) => onInputChange(event, setUpdatedAddressTown)} required />
+                <input type="text" id="addressTown" name="addressTown" placeholder=" " value={updatedAddressTown} onChange={(event) => onInputChange(event, setUpdatedAddressTown)}  />
                 <label htmlFor="addressTown" >Town</label>
-                <input type="text" id="addressProvince" name="addressProvince" placeholder=" " value={updatedAddressProvince} onChange={(event) => onInputChange(event, setUpdatedAddressProvince)} required />
+                <input type="text" id="addressProvince" name="addressProvince" placeholder=" " value={updatedAddressProvince} onChange={(event) => onInputChange(event, setUpdatedAddressProvince)}  />
                 <label htmlFor="addressProvince" >Province</label>
-                <input type="text" id="phoneNumber" name="phoneNumber" placeholder=" " value={updatedPhoneNumber} onChange={(event) => onInputChange(event, setUpdatedPhoneNumber)} required />
+                <input type="text" id="phoneNumber" name="phoneNumber" placeholder=" " value={updatedPhoneNumber} onChange={(event) => onInputChange(event, setUpdatedPhoneNumber)}  />
                 <label htmlFor="phoneNumber" >Phone number (include area code)</label>
                 <br /><br /><br />
                 <div> &nbsp;&nbsp;  Gender Identity</div>
-                <input type="radio" id="male" name="genderIdentity" value="male" />
+                <input type="radio" id="male" name="genderIdentity" value={updatedGenderIdentity} onChange={(event) => onInputChange(event, setUpdatedGenderIdentity)} />
                 <label htmlFor="genderIdentity">Male</label>
-                <input type="radio" id="female" name="genderIdentity" value="female" />
+                <input type="radio" id="female" name="genderIdentity" value={updatedGenderIdentity} onChange={(event) => onInputChange(event, setUpdatedGenderIdentity)} />
                 <label htmlFor="genderIdentity">Female</label>
-                <input type="radio" id="nonBinary" name="genderIdentity" value="nonBinary" />
+                <input type="radio" id="nonBinary" name="genderIdentity" value={updatedGenderIdentity} onChange={(event) => onInputChange(event, setUpdatedGenderIdentity)} />
                 <label htmlFor="genderIdentity">Non-binary</label>
-                <input type="radio" id="preferNotDisclose" name="genderIdentity" value="preferNotDisclose" />
+                <input type="radio" id="preferNotDisclose" name="genderIdentity" value={updatedGenderIdentity} onChange={(event) => onInputChange(event, setUpdatedGenderIdentity)} />
                 <label htmlFor="genderIdentity">Prefer not to disclose</label><br /><br />
                 <span>Specialty</span>
                 <select className="inputText" id="specialty" value={updatedSpecialty} onChange={(event) => onInputChange(event, setUpdatedSpecialty)}>
@@ -143,7 +143,7 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
                     <option value="urology">Urology</option>
                 </select>
 
-                <spanspan> &nbsp;&nbsp;  Practice type </spanspan><br />
+                <span> &nbsp;&nbsp;  Practice type </span><br />
                 <input type="radio" id="public" name="practiceType" value={updatedPracticeType} onChange={(event) => onInputChange(event, setUpdatedPracticeType)} />
                 <label htmlFor="public">Public</label>
                 <input type="radio" id="private" name="practiceType" value={updatedPracticeType} onChange={(event) => onInputChange(event, setUpdatedPracticeType)} />
@@ -155,7 +155,7 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
                 <input type="radio" id="retired" name="activeStatus" value={updatedActiveStatus} onChange={(event) => onInputChange(event, setUpdatedActiveStatus)} />
                 <label htmlFor="retired">Retired</label>
 
-                <input type="text" id="cpsaStanding" name="cpsaStanding" placeholder=" " value={updatedCpsaStanding} onChange={(event) => onInputChange(event, setUpdatedCpsaStanding)} required />
+                <input type="text" id="cpsaStanding" name="cpsaStanding" placeholder=" " value={updatedCpsaStanding} onChange={(event) => onInputChange(event, setUpdatedCpsaStanding)}  />
                 <label htmlFor="cpsaStanding">CPSA registry number (6 digits)</label>
                 <button className="button" disabled={createUserProfileInvalid} onClick={onSaveClicked}>{saveButtonCaption}</button>
                 <button className="button">Cancel</button>

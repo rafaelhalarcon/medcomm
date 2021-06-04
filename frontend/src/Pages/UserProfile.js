@@ -3,8 +3,8 @@ import { useHistory, useParams } from "react-router-dom";
 
 import SignupForm from "../components/SignupForm"
 
-const userId = localStorage.getItem("user");
-fetch(`/api/user/getById/${userId}`);
+// const userId = localStorage.getItem("user");
+// fetch(`/api/user/getById/${userId}`);
 
 const UserProfile = () =>
 {
