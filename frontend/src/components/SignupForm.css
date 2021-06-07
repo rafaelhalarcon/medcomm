@@ -1,74 +1,73 @@
 /** BEGIN: Non Openmrs CSS **/
 * {
-	font-family: arial;
-	background: #86B689;
-  }
-  
-  .field-group {
-	margin-bottom: 1rem;
-	  position: relative;
-  }
-  
-  input:focus ~ .floating-label,
-  input:not(:focus):valid ~ .floating-label{
-	top: 2px;
-	bottom: 10px;
-	left: 2px;
-	font-size: 11px;
-	opacity: 0;
-	padding: 3px;
-  }
-  
-  h1 {
-	  text-align: Left;
-	  margin-bottom: 10px;
-	color: #ffffff;
-	font-weight: 700;
-	font-size: 2rem;
-  }
-  
-  div.container {
-	background: #86B689;
-	  display: flex;
-	  align-items: flex-start;
-	flex-direction: column;
-	  justify-content: left;
-	  padding: 10px;
-	  border-radius: 4px;
-  }
-  .inputText {
-	border-radius: 8px;
-	font-size: 14px;
-	width: 48vw;
-	height: 3rem;
-	background: #ffffff;
-  }
-  select.inputText {
-	border-radius: 8px;
-	font-size: 14px;
-	width: 48vw;
-	height: 3rem;
-	background: #ffffff;
-  }
-  
-  .floating-label {
-	position: absolute;
-	pointer-events: none;
-	background: #ffffff;
-	left: 20px;
-	top: 18px;
-	transition: 0.2s ease all;
-  }
-  .button {
-	color: #86B689;
-	border-radius: 10px;
-	padding: 10px 20px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 1.5rem;
-	margin: 4px 2px;
-	cursor: pointer;
-	background: #ffffff;
-  }
- 
+  font-family: arial;
+  background: white;
+}
+
+.field-group {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label {
+  top: 2px;
+  bottom: 10px;
+  left: 2px;
+  font-size: 11px;
+  opacity: 0;
+  padding: 3px;
+}
+
+h1 {
+  text-align: Left;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+div.container {
+  background: #86b689;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: left;
+  padding: 10px;
+  border-radius: 4px;
+}
+.inputText {
+  border-radius: 8px;
+  font-size: 14px;
+  width: 48vw;
+  height: 3rem;
+  background: #ffffff;
+}
+select.inputText {
+  border-radius: 8px;
+  font-size: 14px;
+  width: 48vw;
+  height: 3rem;
+  background: #ffffff;
+}
+
+.floating-label {
+  position: absolute;
+  pointer-events: none;
+  background: #ffffff;
+  left: 20px;
+  top: 18px;
+  transition: 0.2s ease all;
+}
+.button {
+  color: #86b689;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  margin: 4px 2px;
+  cursor: pointer;
+  background: #ffffff;
+}

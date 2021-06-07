@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const LoginForm = ({
   email,
@@ -9,6 +10,7 @@ const LoginForm = ({
 }) => {
   let [inputEmail, setInputEmail] = useState(email);
   let [inputPassword, setInputPassword] = useState(password);
+  const { dispatch } = useContext(AuthContext);
   console.log(inputEmail);
 
   function onSaveClicked(event) {
@@ -19,7 +21,7 @@ const LoginForm = ({
       password: inputPassword,
     };
     console.log(inputLogin);
-    onSave(inputLogin);
+    onSave(inputLogin, dispatch);
   }
   const onInputChange = (event, setFunction) => {
     console.log("Changing input to be ", event.target.value);

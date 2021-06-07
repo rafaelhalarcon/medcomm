@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../apiCalls";
 import { useEffect, useState } from "react";
 import "./chatOnline.css";
 
@@ -22,9 +22,7 @@ const ChatOnline = ({ onlineUsers, currentId, setCurrentChat }) => {
 
   const handleClick = async (user) => {
     try {
-      const res = await axios.get(
-        `/conversations/find/${currentId}/${user._id}`
-      );
+      const res = await axios.get(`/conversations/find/${currentId}/${user}`);
       setCurrentChat(res.data);
     } catch (err) {
       console.log(err);

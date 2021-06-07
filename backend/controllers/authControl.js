@@ -1,6 +1,6 @@
 const Users = require("../model/User");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+//const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const authControl = {
@@ -11,7 +11,6 @@ const authControl = {
       const {
         lastName,
         firstName,
-        userName,
         email,
         password,
         genderIdentity,
@@ -27,15 +26,15 @@ const authControl = {
         activeStatus,
         cpsaStanding,
       } = req.body;
-      let newUserName = userName; //.toLowerCase().replace(/ /g, "");
+      let newEmail = email; //.toLowerCase().replace(/ /g, "");
 
       //checks to see if a user name exists
-      const user_name = await Users.findOne({ userName: newUserName });
-      if (user_name)
-        return res.status(400).json({ msg: "This User Name already exists." });
+      // const user_name = await Users.findOne({ userName: newUserName });
+      // if (user_name)
+      //   return res.status(400).json({ msg: "This User Name already exists." });
 
       //checks to see if a user email exists
-      const user_email = await Users.findOne({ email });
+      const user_email = await Users.findOne({ newEmail });
       if (user_email)
         return res.status(400).json({ msg: "This email already exists." });
 
@@ -50,8 +49,7 @@ const authControl = {
       const newUser = new Users({
         lastName,
         firstName,
-        userName: newUserName,
-        email,
+        email: newEmail,
         password: passwordHash,
         genderIdentity,
         addressStreetNumber,

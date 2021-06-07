@@ -7,7 +7,7 @@ const path = require("path");
 
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
-const signUpRouter = require("./routes/signup");
+// const signUpRouter = require("./routes/signup");
 const userRouter = require("./routes/user");
 
 //Middleware
@@ -15,30 +15,29 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
-
 //Routes signup
 
-app.use("/signup", signUpRouter);
+//app.use("/signup", signUpRouter);
 
 //Routes user
 
 app.use("/api/user", userRouter);
 
 //Routes for Conversations
-app.use("/conversations", conversationRoute);
+app.use("/api/conversations", conversationRoute);
 
 // Routes for Messages
-app.use("/messages", messageRoute);
+app.use("/api/messages", messageRoute);
 
 // Socket.io
 // io.on("connection", (socket) => {
 //     socket.on('disconnect',() => {console.log('socket is disconnected')})
 
 //     console.log('socket is connected')
-//})
+// })
 
-//socket.io local test run
-//app.use('/',  express.static('./test'))
+// socket.io local test run
+// app.use('/',  express.static('./test'))
 
 // // static page config to test socket.io
 // const publicDirectoryPath = path.join(__dirname, './testSocket')

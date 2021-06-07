@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router() 
-const Message = require('../model/Message')
-const AuthMiddleware = require("./../middlewares/authMiddleware")
+const express = require("express");
+const router = express.Router();
+const Message = require("../model/Message");
+const AuthMiddleware = require("./../middlewares/authMiddleware");
 // let jwtUser = null;
 
 // // Token verfication middleware
@@ -17,12 +17,11 @@ const AuthMiddleware = require("./../middlewares/authMiddleware")
 //   }
 // });
 
-
 //add message
-router.post("/", AuthMiddleware, async (req, res) => {
-  const newMessage = new Message(req.body);
-  newMessage.sender = req.authInfo.id;
+router.post("/", async (req, res) => {
+  //newMessage.sender = req.authInfo.id;
   try {
+    const newMessage = new Message(req.body);
     const savedMessage = await newMessage.save();
     res.status(200).json(savedMessage);
   } catch (err) {

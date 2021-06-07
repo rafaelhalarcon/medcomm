@@ -27,7 +27,7 @@ const LoginPage = () => {
   //     getUserCredentials();
   //   }, [userId, userCredentials]);
 
-  let onSave = async (loginCredentials) => {
+  let onSave = async (loginCredentials, dispatch) => {
     console.log(loginCredentials);
     try {
       let postResponse = await fetch("/api/user/login", {

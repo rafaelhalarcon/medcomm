@@ -1,7 +1,7 @@
-const express = require('express')
-const router = express.Router() 
-const Conversation = require('../model/Conversation')
-const AuthMiddleware = require("./../middlewares/authMiddleware")
+const express = require("express");
+const router = express.Router();
+const Conversation = require("../model/Conversation");
+//const AuthMiddleware = require("./../middlewares/authMiddleware");
 
 // let jwtUser = null;
 //middleware
@@ -18,38 +18,37 @@ const AuthMiddleware = require("./../middlewares/authMiddleware")
 //     }
 //   });
 
- // new conversation
- router.post("/", AuthMiddleware, async (req, res) => {
-     console.log(req.body)
-     let senderId = req.authInfo.id;
-    /**
-     * maybe receiverId should be receiver userName? Then, you'd have to query db for user by userName. Then use the returned id
-     */
-    const newConversation = new Conversation({
-      participants: [senderId, req.body.receiverId], 
-    });
-  
-    try {
-      const savedConversation = await newConversation.save();
-      res.status(200).json(savedConversation);
-    } catch (err) {
-      res.status(500).json(err);
-    }
+// new conversation
+router.post("/", async (req, res) => {
+  console.log(req.body);
+  //let senderId = req.authInfo.id;
+  /**
+   * maybe receiverId should be receiver userName? Then, you'd have to query db for user by userName. Then use the returned id
+   */
+  const newConversation = new Conversation({
+    participants: [req.body.senderId, req.body.receiverId],
   });
 
-  //get conversation of a user
-  router.get("/", AuthMiddleware, async (req, res) => {
-    // let userId = jwtUser.id;
-    let userId = req.authInfo.id;
-    try {
-        const conversation = await Conversation.find({
-          participants: { $in: [userId] },
-        });
-        res.status(200).json(conversation);
-      } catch (err) {
-        res.status(500).json(err);
-      }
-})
+  try {
+    const savedConversation = await newConversation.save();
+    res.status(200).json(savedConversation);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//get conversation of a user
+router.get("/:user", async (req, res) => {
+  const userId = req.params.user;
+  try {
+    const conversation = await Conversation.find({
+      participants: { $in: [userId] },
+    });
+    res.status(200).json(conversation);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 //   router.get("/userName", async (req, res) => {
 //       console.log("what is req.params", req.params)
@@ -63,7 +62,7 @@ const AuthMiddleware = require("./../middlewares/authMiddleware")
 //     }
 //   });
 
-  // get conv includes two userId
+// get conv includes two userId
 
 // router.get("/find/:firstUserId/:secondUserId", async (req, res) => {
 //     try {
@@ -76,4 +75,4 @@ const AuthMiddleware = require("./../middlewares/authMiddleware")
 //     }
 //   });
 
- module.exports = router
+module.exports = router;
