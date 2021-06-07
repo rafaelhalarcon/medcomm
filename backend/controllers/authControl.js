@@ -9,9 +9,9 @@ const authControl = {
     console.log("I am hitting signup/register POST");
     try {
       const {
+        email,
         lastName,
         firstName,
-        email,
         password,
         genderIdentity,
         addressStreetNumber,
@@ -47,9 +47,11 @@ const authControl = {
       const passwordHash = await bcrypt.hash(password, 12);
 
       const newUser = new Users({
+        email: newEmail,
         lastName,
         firstName,
-        email: newEmail,
+
+        // userName: newUserName,
         password: passwordHash,
         genderIdentity,
         addressStreetNumber,

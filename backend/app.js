@@ -9,6 +9,7 @@ const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
 // const signUpRouter = require("./routes/signup");
 const userRouter = require("./routes/user");
+const userProfile = require("./routes/userProfile");
 
 //Middleware
 app.use(express.json());
@@ -20,8 +21,10 @@ app.use(express.urlencoded({ extended: false }));
 //app.use("/signup", signUpRouter);
 
 //Routes user
-
 app.use("/api/user", userRouter);
+
+//Routes User Profile
+app.use("/userProfile", userProfile);
 
 //Routes for Conversations
 app.use("/api/conversations", conversationRoute);

@@ -27,8 +27,8 @@ const App = () => {
             </Route>
             {/* <Route path="/userprofile">
       <UserEditPage />
-    </Route>
-    <Route path="/userprofile">
+  </Route>
+    <Route exact path="/userProfile">
       <UserProfile />
     </Route>*/}
             <Route path="/login">

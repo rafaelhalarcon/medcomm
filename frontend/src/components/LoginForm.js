@@ -29,36 +29,17 @@ const LoginForm = ({
   };
 
   return (
-    <div className="container">
-      <form onSubmit={onSaveClicked}>
-        <div className="field-group">
-          <input
-            type="text"
-            className="inputText"
-            required
-            value={inputEmail}
-            onChange={(event) => onInputChange(event, setInputEmail)}
-          />
-          <span className="floating-label" htmlFor="email">
-            Username (email)
-          </span>
-        </div>
-        <div className="field-group">
-          <input
-            type="password"
-            className="inputText"
-            required
-            value={inputPassword}
-            onChange={(event) => onInputChange(event, setInputPassword)}
-          />
-          <span className="floating-label" id="password" htmlFor="password">
-            Password
-          </span>
-        </div>
+    <div>
+      <h1>Signup form</h1>
+            <form onSubmit={onSaveClicked}>
+                <input type="text" id="email" name="email" placeholder=" " value={inputEmail} onChange={(event) => onInputChange(event, setInputEmail)} required />
+                <label htmlFor="email">Email (username)</label>
+                <input type="password" id="password" name="password" placeholder=" " value={inputPassword} onChange={(event) => onInputChange(event, setInputPassword)} required />
+                <label htmlFor="password" >Password</label>
         <button className="button">{saveButtonCaption}</button>
         {saveError && <div>{saveError}</div>}
       </form>
-    </div>
+      </div>
   );
 };
 

@@ -15,7 +15,7 @@ const RegistrationPage = () => {
     console.log("updated signup form");
     console.log(updatedSignupForm);
     try {
-      let postResponse = await fetch("/api/user/register/", {
+      let postResponse = await fetch("/api/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,9 +29,9 @@ const RegistrationPage = () => {
         console.log("We had an error.  it was: ", errorMessage);
         setSaveError(errorMessage);
       } else {
-        setSaveError(undefined);
+        setSaveError(null);
         // go back to the list view!
-        history.push("/signup/register/" + userRecord._id);
+        history.push("/signup/register/");
       }
     } catch (error) {
       // the server cannot be reached
@@ -44,7 +44,7 @@ const RegistrationPage = () => {
       onSave={onSave}
       saveError={saveError}
       saveButtonCaption="Create User"
-      userName={userRecord?.userName || UNKNOWN}
+      email={userRecord?.email || UNKNOWN}
       firstName={userRecord?.firstName || UNKNOWN}
       lastName={userRecord?.lastName || UNKNOWN}
       password={userRecord?.password || UNKNOWN}
@@ -57,7 +57,6 @@ const RegistrationPage = () => {
       addressTown={userRecord?.addressTown || UNKNOWN}
       addressProvince={userRecord?.addressProvince || UNKNOWN}
       phoneNumber={userRecord?.phoneNumber || UNKNOWN}
-      email={userRecord?.email || UNKNOWN}
       genderIdentity={userRecord?.genderIdentity || UNKNOWN}
       specialty={userRecord?.specialty || UNKNOWN}
       practiceType={userRecord?.practiceType || UNKNOWN}

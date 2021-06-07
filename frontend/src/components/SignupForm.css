@@ -1,64 +1,68 @@
 /** BEGIN: Non Openmrs CSS **/
 * {
   font-family: arial;
-  background: white;
-}
-
-.field-group {
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-input:focus ~ .floating-label,
-input:not(:focus):valid ~ .floating-label {
-  top: 2px;
-  bottom: 10px;
-  left: 2px;
-  font-size: 11px;
-  opacity: 0;
-  padding: 3px;
-}
-
-h1 {
-  text-align: Left;
-  margin-bottom: 10px;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 2rem;
-}
-
-div.container {
   background: #86b689;
+}
+
+body {
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: left;
-  padding: 10px;
-  border-radius: 4px;
 }
-.inputText {
-  border-radius: 8px;
-  font-size: 14px;
-  width: 48vw;
-  height: 3rem;
-  background: #ffffff;
+
+form {
+  width: 45rem;
+  display: block;
+  margin: 3rem auto;
+  padding: 3rem;
+  border: 10px solid #709a73;
 }
+
+label {
+  display: block;
+  transform: translate(0, -2.75rem);
+}
+
+input {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.25rem;
+  border: none;
+  border-bottom: 2px solid #111;
+  transition: border-color 0.2s ease;
+  font-size: 1.25rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #709a73;
+}
+
+@supports (not (-ms-ime-align: auto)) {
+  label {
+    color: rgb(0, 0, 0);
+    transform: translate(0.25rem, -1.5rem);
+    transition: all 0.2s ease-out;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    color: #111;
+    transform: translate(0, -2.75rem);
+  }
+}
+
 select.inputText {
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 1rem;
   width: 48vw;
-  height: 3rem;
-  background: #ffffff;
+  height: 2rem;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.25rem;
+  border: none;
+  border-bottom: 2px solid #111;
+  transition: border-color 0.2s ease;
 }
 
-.floating-label {
-  position: absolute;
-  pointer-events: none;
-  background: #ffffff;
-  left: 20px;
-  top: 18px;
-  transition: 0.2s ease all;
-}
 .button {
   color: #86b689;
   border-radius: 10px;
