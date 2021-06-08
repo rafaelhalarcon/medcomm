@@ -15,7 +15,7 @@ const RegistrationPage = () => {
     console.log("updated signup form");
     console.log(updatedSignupForm);
     try {
-      let postResponse = await fetch("/api/user/register/", {
+      let postResponse = await fetch("/api/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,13 +29,18 @@ const RegistrationPage = () => {
         console.log("We had an error.  it was: ", errorMessage);
         setSaveError(errorMessage);
       } else {
-        setSaveError(undefined);
+        setSaveError(null);
+
+        const userResponse = await postResponse.json()
+        console.log("userResponse", userResponse)
+        localStorage.setItem("userid", userResponse.user._id)
+
         // go back to the list view!
-        history.push("/signup/register/" + userRecord._id);
+        history.push("/userprofile");
       }
-    } catch (error) {
+    } catch (err) {
       // the server cannot be reached
-      console.error("Fetch failed to reach the server.");
+      console.error(err);
     }
   };
 

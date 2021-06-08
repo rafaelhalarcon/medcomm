@@ -11,7 +11,6 @@ const authControl = {
       const {
         lastName,
         firstName,
-        userName,
         email,
         password,
         genderIdentity,
@@ -27,12 +26,7 @@ const authControl = {
         activeStatus,
         cpsaStanding,
       } = req.body;
-      let newUserName = userName; //.toLowerCase().replace(/ /g, "");
 
-      //checks to see if a user name exists
-      const user_name = await Users.findOne({ userName: newUserName });
-      if (user_name)
-        return res.status(400).json({ msg: "This User Name already exists." });
 
       //checks to see if a user email exists
       const user_email = await Users.findOne({ email });
@@ -50,7 +44,6 @@ const authControl = {
       const newUser = new Users({
         lastName,
         firstName,
-        userName: newUserName,
         email,
         password: passwordHash,
         genderIdentity,

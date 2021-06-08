@@ -39,14 +39,16 @@ const LoginPage = () => {
       });
       // the server didn't like the data for some reason
       console.log("Create response is", postResponse);
+     // alert ("Testing")
       if (postResponse.status !== 200) {
         let errorMessage = await postResponse.text();
         console.log("We had an error.  it was: ", errorMessage);
+        alert("Testing")
         setSaveError(errorMessage);
       } else {
         const userData = await postResponse.json();
         localStorage.setItem("user", userData.user.id);
-        setSaveError(undefined);
+        setSaveError(null);
         // go back to the list view!
         history.push("/userprofile");
       }

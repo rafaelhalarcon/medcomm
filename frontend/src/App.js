@@ -11,25 +11,33 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <img src={logo} className="App-logo" alt="logo" />
-        <header className="App-header">
-          Your trusted source in communication from Doctor to Doctor.
-          <a>
-            <Link to="/login">Login</Link>&nbsp;&nbsp;
-            <Link to="/register">Signup</Link>
-          </a>
-        </header>
         <Switch>
           <Route exact path="/register">
+          <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          Your trusted source in communication from Doctor to Doctor.
+          <div>
+            <Link to="/login">Login</Link>&nbsp;&nbsp;
+            <Link to="/register">Signup</Link>
+          </div>
+        </header>
             <RegistrationPage />
           </Route>
           {/* <Route path="/userprofile">
       <UserEditPage />
   </Route>*/}
-    <Route exact path="/userProfile">
+    <Route exact path="/userprofile">
       <UserProfile />
     </Route>
            <Route path="/login">
+           <header className="App-header">
+           <img src={logo} className="App-logo" alt="logo" />
+          Your trusted source in communication from Doctor to Doctor.
+          <div>
+            <Link to="/login">Login</Link>&nbsp;&nbsp;
+            <Link to="/register">Signup</Link>
+          </div>
+        </header>
             <LoginPage />
           </Route>
            {/* <Route path="/Messaging">

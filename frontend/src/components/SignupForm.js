@@ -24,7 +24,8 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
     let [updatedCpsaStanding, setUpdatedCpsaStanding] = useState();
 
 
-    async function onSaveClicked() {
+    async function onSaveClicked(e) {
+        e.preventDefault()
         console.log("User profile has been created");
         let updatedSignupForm = {
             email: updatedEmail,
@@ -63,7 +64,7 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
     return (
         <div className="container">
             <h1>Signup form</h1>
-            <form >
+            <form onSubmit = {onSaveClicked} >
                 <input type="text" id="email" name="email" placeholder=" " value={updatedEmail} onChange={(event) => onInputChange(event, setUpdatedEmail)} required />
                 <label htmlFor="email" >Email</label>
                 <input type="password" id="password" name="password" placeholder=" " value={updatedPassword} onChange={(event) => onInputChange(event, setUpdatedPassword)} required />
@@ -143,7 +144,7 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
                     <option value="urology">Urology</option>
                 </select>
 
-                <spanspan> &nbsp;&nbsp;  Practice type </spanspan><br />
+                <span> &nbsp;&nbsp;  Practice type </span><br />
                 <input type="radio" id="public" name="practiceType" value={updatedPracticeType} onChange={(event) => onInputChange(event, setUpdatedPracticeType)} />
                 <label htmlFor="public">Public</label>
                 <input type="radio" id="private" name="practiceType" value={updatedPracticeType} onChange={(event) => onInputChange(event, setUpdatedPracticeType)} />
@@ -157,7 +158,7 @@ const SignupForm = ({ firstName, lastName, password, repeatedPassword, avatar, b
 
                 <input type="text" id="cpsaStanding" name="cpsaStanding" placeholder=" " value={updatedCpsaStanding} onChange={(event) => onInputChange(event, setUpdatedCpsaStanding)} required />
                 <label htmlFor="cpsaStanding">CPSA registry number (6 digits)</label>
-                <button className="button" disabled={createUserProfileInvalid} onClick={onSaveClicked}>{saveButtonCaption}</button>
+                <button className="button" disabled={createUserProfileInvalid} type = "submit">{saveButtonCaption}</button>
                 <button className="button">Cancel</button>
                 {saveError && <div>{saveError}</div>}
             </form>
