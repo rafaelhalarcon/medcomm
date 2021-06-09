@@ -49,7 +49,7 @@ const RegistrationPage = () => {
       onSave={onSave}
       saveError={saveError}
       saveButtonCaption="Create User"
-      userName={userRecord?.userName || UNKNOWN}
+      email={userRecord?.email || UNKNOWN}
       firstName={userRecord?.firstName || UNKNOWN}
       lastName={userRecord?.lastName || UNKNOWN}
       password={userRecord?.password || UNKNOWN}
@@ -62,7 +62,6 @@ const RegistrationPage = () => {
       addressTown={userRecord?.addressTown || UNKNOWN}
       addressProvince={userRecord?.addressProvince || UNKNOWN}
       phoneNumber={userRecord?.phoneNumber || UNKNOWN}
-      email={userRecord?.email || UNKNOWN}
       genderIdentity={userRecord?.genderIdentity || UNKNOWN}
       specialty={userRecord?.specialty || UNKNOWN}
       practiceType={userRecord?.practiceType || UNKNOWN}
